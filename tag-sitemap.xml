@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Elixir/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/functional-programming/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/backend/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/continuous-delivery/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Git/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Travis-CI/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Coveralls-io/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/PM2/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/lets-encrypt/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/ssl/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/gitlab/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/nginx/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/agile/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/management-3-0/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/playground/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/serious-game/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/2014/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/agile-tour/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/bordeaux/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/devops/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/kanban/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/software-craftsmanship/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Clermont-Ferrand/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/effective/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/groovy/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/java/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/JVM/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/lambda/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/scala/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/software-craftmanship/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Docker/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/MongoDB/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Ubuntu-Server/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/effective-java/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Java-6/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Apache/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Karaf/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/lava-JUG/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/OSGi/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/front-end/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/web/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Wisdom/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/continuous-delivry/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/git/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/lean/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Big-Data/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/C/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Workshop/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/curryfication/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/virtualisation/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/brown-bags/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/presentaion/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/kent-beck/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/TDD/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/XP/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Robert-C-Martin/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Five-Whys/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Lean-Startup/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/MVP/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Small-Batches/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Clojure/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Java-7/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Project-Coin/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/eXtreme-Programming/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Mike-Cohn/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Scrum/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/User-Stories/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/soft-skills/</loc>
+        <lastmod>2016-10-18T20:36:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/productivite/</loc>
+        <lastmod>2016-10-18T20:36:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/tags/Pomodoro/</loc>
+        <lastmod>2016-10-18T20:36:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>Tag: functional programming - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="Blog d'un artisan développeur">
+<meta property="og:url" content="http://pierrepironin.fr/tags/functional-programming/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog d'un artisan développeur">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="1">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/Elixir/">Elixir, et pourquoi pas ?</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Fri Apr 15 2016 11:16:14 GMT+0200">
+	
+		    15 avril 2016
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <h2 id="Elixir-C’est-quoi"><a href="#Elixir-C’est-quoi" class="headerlink" title="Elixir ? C’est quoi ?"></a>Elixir ? C’est quoi ?</h2><p>Une marque de bière !<br>Oui mais pas que. C’est aussi le nom d’un <a href="http://elixir-lang.org/" target="_blank" rel="external">langage</a> dynamique, fonctionnel, concurrentiel et fun !<br>On en parle de plus en plus et la communauté est très active avec une nouvelle version (1.2) qui date tout juste du mois de Mars.</p>
+<p>Basé sur <a href="http://www.erlang.org/" target="_blank" rel="external">Erlang</a>, et sa machine virtuelle <em>Beam</em>, créé par Ericsson pour être utilisé dans des appareils de télécommunications, Elixir en tire des propriétés intéressantes comme l’<em>Open Telecom Platform</em> (aka OTP, communication entre les services), la tolérance à la panne (<em>supervisor</em>) et le rechargement de code à chaud.</p>
+<h2 id="Pourquoi-m’y-interesser"><a href="#Pourquoi-m’y-interesser" class="headerlink" title="Pourquoi m’y intéresser ?"></a>Pourquoi m’y intéresser ?</h2><p>Ça peut paraître étonnant mais au jour d’aujourd’hui, je n’ai pas trouvé de technologie qui me donne entière satisfaction pour écrire un backend organisé en micro-applications ou micro-services</p>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ul>
+<li>même si <a href="http://projects.spring.io/spring-boot/" target="_blank" rel="external">Spring Boot</a> fait du bon boulot pour rendre la tâche plus facile, il y a encore beaucoup de verbosité et de configuration pour organiser un backend en plusieurs applications indépendantes</li>
+<li>les applications sont quand même assez longues à démarrer comparés à d’autres technologies (NodeJS par exemple) et ça joue sur le temps d’exécution des tests</li>
+<li>le refactoring est assez lourd, même si mon IDE en fait une grosse partie (avez-vous déjà essayer de renommer une micro-application ?)</li>
+</ul>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><ul>
+<li><a href="http://expressjs.com/" target="_blank" rel="external">Express</a> : à chaque fois que je redonne une chance à Express, je m’en veux dès que j’ai à configurer un ou deux middlewares (passportjs, connexions ssl, etc)</li>
+<li><a href="http://hapijs.com/" target="_blank" rel="external">HapiJS</a> : j’avais bien accroché (voir <a href="https://github.com/PierrePIRONIN/betools-server" target="_blank" rel="external">ici</a>), surtout pour l’approche configuration plutôt que code (comme c’est le cas dans Express). Beaucoup de <a href="http://hapijs.com/plugins" target="_blank" rel="external">plugins</a> pour faire des choses sympas mais quand on veut sortir des sentiers battus, aïe (je n’ai pas réussi à autoriser des connexions ssl…)</li>
+</ul>
+<p>Je n’ai pas tout essayé (il faudrait peut-être que je donne une chance à <a href="http://vertx.io/" target="_blank" rel="external">Vert.X</a> ou <a href="http://wisdom-framework.org" target="_blank" rel="external">Wisdom</a>) mais quitte à essayer quelque chose d’autre, j’ai choisi d’y aller à fond.</p>
+<h2 id="Et-Elixir-fait-mieux"><a href="#Et-Elixir-fait-mieux" class="headerlink" title="Et Elixir fait mieux ?"></a>Et Elixir fait mieux ?</h2><p>Je ne sais pas. Je débute.</p>
+<p>Mais il y a quelques indices qui m’incitent à pousser l’apprentissage un peu loin :</p>
+<ul>
+<li><strong>programmation fonctionnelle</strong> -&gt; ce dont j’ai besoin la plupart du temps dans mes backend REST, c’est des morceaux de code <em>stateless</em> qui appliquent un traitement à des données.<br>Et bien c’est le cas d’usage parfait pour de la programmation fonctionnelle (parallélisme, enchaînements de tâches simples, etc)</li>
+<li><strong>utilisation des <em>actors</em></strong> -&gt; les <em>actors</em> sont un modèle de concurrence qui impliquent des process indépendants qui ne partagent pas d’état et qui communiquent par messages.<br>Ça me paraît bien pour faire des micro-services indépendants, non ?</li>
+<li><strong>OTP</strong> -&gt; l’<em>Open Telecom Platform</em> permet de faire communiquer simplement nos process et même de les superviser pour les redémarrer en cas de crash (tolérance à la panne) ainsi que de les monitorer (usage CPU, RAM, applications lancées, etc).<br>Et tout ça, inclus de base !</li>
+<li><strong>mix</strong> -&gt; mix est la chaîne d’outils d’Elixir. Elle permet de gérer les dépendances avec <a href="https://hex.pm/" target="_blank" rel="external">hex</a>, de compiler, de lancer les tests, de générer la documentation à la JavaDoc, lancer des applications, etc.<br>Ce qui me plaît le plus avec mix (outre le fait que c’est un vrai couteau suisse), c’est qu’il révèle une véritable culture du test (même les exemples de la documentation sont inclus dans l’exécution des tests…). Et ça, ça me plaît.</li>
+</ul>
+<h2 id="Penser-autrement"><a href="#Penser-autrement" class="headerlink" title="Penser autrement"></a>Penser autrement</h2><p>Je ne vais pas entrer plus loin dans le détail. L’apprentissage d’Elixir est un peu déroutante quand on est habitué à la programmation objet (pattern matching partout, récursion à fond, pas de boucle, etc) mais elle en vaut la peine, ne serait-ce que pour apprendre à penser autrement.<br>Pour ça je vous conseille la lecture du très bon <a href="https://pragprog.com/book/elixir12/programming-elixir-1-2" target="_blank" rel="external">Programming Elixir 1.2</a> de <a href="https://twitter.com/pragdave" target="_blank" rel="external">Dave Thomas</a> et surtout de réaliser les exercises qu’il contient. Ce n’est qu’à cette condition que votre lecture sera efficace. Et n’hésitez pas à partager vos implémentations, voici les <a href="https://github.com/PierrePIRONIN/ProgrammingElixir1.2" target="_blank" rel="external">miennes</a>.</p>
+<h2 id="Mais-ce-n’est-pas-tout"><a href="#Mais-ce-n’est-pas-tout" class="headerlink" title="Mais ce n’est pas tout"></a>Mais ce n’est pas tout</h2><p>Elixir a indubitablement quelque chose à apporter dans la conception de nos backend.<br>Ça se sent. Mais ce n’est pas tout.<br>On a un autre outil à notre disposition pour nous aider: <a href="http://www.phoenixframework.org/" target="_blank" rel="external">Phoenix</a>, LE framework web écrit en Elixir !</p>
+<p>Ça sera l’objet de ma prochaine lecture, <a href="https://pragprog.com/book/phoenix/programming-phoenix" target="_blank" rel="external">Programming Phoenix</a> et de mon prochain post.</p>
+<p><em>Think differently !</em></p>
+
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/Elixir/#post-footer" class="postShorten-excerpt_link link">
+                                    Commenter et partager
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/lavajug-s04e06/">Lava JUG - A la (re)découverte des langages fonctionnels</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Fri Feb 27 2015 11:30:04 GMT+0100">
+	
+		    27 février 2015
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Evenements/">Événements</a>
+
+
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <div style="text-align: justify; text-justify: inter-word"><br>J’étais hier soir au <a href="https://twitter.com/lavajug" title="@LavaJUG" target="_blank" rel="external">Lava JUG</a>, pour une soirée autour des<a href="http://www.lavajug.org/xwiki/bin/view/Main/EventTwentySix" title="LavaJUG Langages Fonctionnels" target="_blank" rel="external"> langages fonctionnels,</a> animée par <a href="https://twitter.com/yannick_loiseau" title="@YannickLoiseau" target="_blank" rel="external">Yannick Loiseau</a>, maître de conférence à l’Université Blaise Pascal et fortement impliqué dans le développement logiciel, notamment dans les langages fonctionnels.<br><br>A l’heure où de plus en plus de langages informatiques “modernes” (Java 8, C++ 11, Groovy, Scala, Clojure, etc) ajoutent des touches de programmation fonctionnelle, voire en font leur paradigme principal, et un an après la présentation <a href="http://pierrepironin.fr/lava-jug-lambda-bestiary/" title="Lava JUG – Lambda Bestiary">Lambda Bestiary</a> de Rémi Forax; Yannick nous propose un retour sur les concepts qui se cachent derrière ce style de programmation. Et en deux heures, ça promettait d’être sportif !<br><br>Et ce le fut un peu ! Mais là où Yannick a été très bon, c’est qu’il s’est appuyé sur des concepts que la plupart des développeurs connaissent déjà en langage objet (tels que les design patterns classiques) en montrant comment on pouvait les réécrire en langage fonctionnel, la plupart du temps de façon plus concise et “naturelle”.<br><br>La plupart des concepts ont été revus : fonctions de 1er ordre, d’ordre supérieur, concepts de map, filter, fold, unfold, les closures, les lambda jusqu’aux concepts plus avancés de partialisation, curryfication et monades. Le tout parsemé d’exemples en Java 8 et <a href="http://golo-lang.org/" title="Golo Language" target="_blank" rel="external">Golo</a>. Et ce rappel tombe à pic pour moi car mes <a href="http://pierrepironin.fr/cure-de-jouvence-java/" title="Cure de jouvence Java">prochaines lectures</a> seront consacrées à Java 7 et 8 ainsi qu’à Groovy, Scala et Clojure. Timing parfait !<br><br>La présentation, comme toutes les épisodes précédents, est à (re)découvrir <a href="https://www.youtube.com/watch?v=O4CnZt4x_y4&amp;feature=youtu.be" title="S04E06 Live" target="_blank" rel="external">ici</a>.<br><br>Encore merci à Yannick et au Lava JUG pour ces moments de partage !<br></div>
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/lavajug-s04e06/#post-footer" class="postShorten-excerpt_link link">
+                                    Commenter et partager
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/cure-de-jouvence-java/">Cure de jouvence Java</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Thu Feb 26 2015 16:40:23 GMT+0100">
+	
+		    26 février 2015
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <div style="text-align: justify; text-justify: inter-word"><br>Après avoir quelque peu délaissé le Java au profit du C++ ces dernières années, un peu de rattrapage s’impose. Le but est donc de revoir les bonnes pratiques de Java 6 et de partir à la découverte de ce qu’ont apportées les versions 7 et 8 de Java. Rien que ça !<br><br>Pour cela, rien de plus efficace qu’un bon bouquin truffé d’exemples et écrit pas des personnes qui savent de quoi elles parlent. Je découvre à cette occasion pour la première fois des livres des éditions <a href="http://www.manning.com/" title="Manning" target="_blank" rel="external">Manning</a> et quelque chose me dit que j’y reviendrai ! C’est fou toutes les références qu’ils ont dans les technologies de développement logiciel !<br><br>J’ai donc choisi trois livres, un pour chaque version :<br>&nbsp;&nbsp;&nbsp;&nbsp;- Java 6 : <a href="http://www.amazon.com/Effective-Java-Edition-Joshua-Bloch/dp/0321356683" title="Effective Java Amazon" target="_blank" rel="external"><strong>Effective Java</strong>, <em><strong>Second Edition</strong></em></a> de <strong>Joshua Bloch</strong> chez <em>Addison-Wesley (Août 2008)</em>.<br>Bonnes pratiques qui permettent d’écrire du code Java efficient. J’avais déjà lu ce livre il y a cinq ans mais on oublie vite quand on ne manipule pas !<br>&nbsp;&nbsp;&nbsp;&nbsp;- Java 7 : <a href="http://www.amazon.com/Well-Grounded-Java-Developer-techniques-programming/dp/1617290068/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1424962684&amp;sr=1-1&amp;keywords=well+grounded+java+developer" title="Well Grounded Java Developer" target="_blank" rel="external"><strong>Well Grounded Java Developer</strong></a> de <strong>Benjamin J. Evans</strong> et <strong>Martjin Verburg</strong> chez <em>Manning (Juillet 2012)</em>.<br>Nouveautés Java 7 (<em>Project Coin, try-with-resources, NIO.2</em>) et comme dans “<em>Effective Java</em>“, quelques techniques sympas à connaître.<br>Ensuite, une introduction très intéressante aux langages basés sur la JVM, cousins plus ou moins proches de Java dont notamment <em>Groovy</em>, <em>Scala</em> et <em>Clojure</em>.<br>Enfin, une dernière partie sur quelques notions de software craftmanship appliquées à ces langages.<br>&nbsp;&nbsp;&nbsp;&nbsp;- Java 8 : <a href="http://www.amazon.com/Java-Action-Lambdas-functional-style-programming/dp/1617291994/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1424963277&amp;sr=1-1&amp;keywords=java+8+in+action" title="Java 8 Amazon" target="_blank" rel="external"><strong>Java 8 in Action</strong></a> de <strong>Raoul-Gabriel Urma</strong>, <strong>Mario Fusco</strong> et <strong>Alan Mycroft</strong> chez <em>Manning (Août 2014)</em>.<br>Nouveautés Java 8 et notamment une introduction aux expressions lambda.<br>Ensuite, une partie sur le traitement des données (ex: Collections) à la sauce programmation fonctionnelle et flux.<br>Après, comme pour les précédents livres, une partie sur comment être efficient en Java 8.<br>Et enfin, une partie un plus poussée sur la façon de penser en programmation fonctionnelle et l’après Java 8.<br><br>Tout un programme qui fait du bien au moral ! Je détaillerai chacun des livres dans des articles à venir ainsi que les spikes que j’ai prévu de faire pour Groovy, Scala et autres.<br></div>
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/cure-de-jouvence-java/#post-footer" class="postShorten-excerpt_link link">
+                                    Commenter et partager
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page sur</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

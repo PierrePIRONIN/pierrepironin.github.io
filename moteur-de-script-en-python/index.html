@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>Moteur de script en Python - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Récemment, j’ai dû réfléchir à une solution de moteur de script dans le cadre d’un projet au boulot. Le but est d’enregistrer l’exécution d’un code python à la volée et de générer le script équivalent">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Moteur de script en Python">
+<meta property="og:url" content="http://pierrepironin.fr/moteur-de-script-en-python/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="Récemment, j’ai dû réfléchir à une solution de moteur de script dans le cadre d’un projet au boulot. Le but est d’enregistrer l’exécution d’un code python à la volée et de générer le script équivalent">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Moteur de script en Python">
+<meta name="twitter:description" content="Récemment, j’ai dû réfléchir à une solution de moteur de script dans le cadre d’un projet au boulot. Le but est d’enregistrer l’exécution d’un code python à la volée et de générer le script équivalent">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Moteur de script en Python
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sun Mar 02 2014 16:44:43 GMT+0100">
+	
+		    02 mars 2014
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Code/">Code</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div style="text-align: justify; text-justify: inter-word"><br>Récemment, j’ai dû réfléchir à une solution de moteur de script dans le cadre d’un projet au boulot. Le but est d’enregistrer l’exécution d’un code python à la volée et de générer le script équivalent, pouvant se rejouer seul.<br><br>J’ai pour cela utilisé <a href="http://springpython.webfactional.com/" title="Spring Python" target="_blank" rel="external">Spring Python</a> qui est la version Python du fameux <a href="http://spring.io/" title="Spring" target="_blank" rel="external">Spring</a> pour Java, ainsi que l’introspection fournie par Python.<br><a id="more"></a><br>J’ai pris un exemple simpliste dont le sens des classes a peu d’intérêt, l’important étant d’avoir plusieurs classes pour générer des noms d’instances uniques par type. Le code source est disponible <a href="http://github.com/PierrePIRONIN/scriptifyPython" title="GitHub" target="_blank" rel="external">ici</a>.<br><br>On crée deux classes de base qui encapsule des entiers (Chiffre et Nombre) et une classe qui possède des méthodes statiques afin d’instancier et d’additionner un Chiffre et un Nombre.<br><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Nombre</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nombre)</span>:</span></div><div class="line">        self.nombre = nombre</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toInt</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.nombre</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printOut</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">print</span> self.toInt()</div></pre></td></tr></table></figure><br><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chiffre</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, chiffre)</span>:</span></div><div class="line">        self.chiffre = chiffre</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toInt</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.chiffre</div></pre></td></tr></table></figure><br><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> Nombre <span class="keyword">import</span> Nombre</div><div class="line"><span class="keyword">from</span> Chiffre <span class="keyword">import</span> Chiffre</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LibCalcul</span>:</span> </div><div class="line"><span class="meta">    @staticmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getNombre</span><span class="params">(nombre)</span>:</span></div><div class="line">        <span class="keyword">return</span> Nombre(nombre)</div><div class="line"></div><div class="line"><span class="meta">    @staticmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getChiffre</span><span class="params">(chiffre)</span>:</span></div><div class="line">        <span class="keyword">return</span> Chiffre(chiffre)</div><div class="line"></div><div class="line"><span class="meta">    @staticmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">additionne</span><span class="params">(nombre, chiffre)</span>:</span></div><div class="line">        <span class="keyword">return</span> Nombre(nombre.toInt() + chiffre.toInt())</div><div class="line"></div><div class="line"><span class="meta">    @staticmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printNombre</span><span class="params">(nombre)</span>:</span></div><div class="line">        <span class="keyword">print</span> nombre.toInt()</div></pre></td></tr></table></figure><br><br>Il faut ensuite définir un intercepteur qui sera appelé lorsque qu’une méthode de la classe LibCalcul sera appelée. Le point d’entrée de cette classe est la méthode “invoke”.<br><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> springpython.aop <span class="keyword">import</span> MethodInterceptor</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScriptifyInterceptor</span><span class="params">(MethodInterceptor)</span>:</span></div><div class="line">    _sessionIds = &#123;&#125;</div><div class="line">    _sessionIdGenerated = &#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, outputFilename)</span>:</span></div><div class="line">        self._outputFilename = outputFilename</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getClassNameForObject</span><span class="params">(self, objectTarget)</span>:</span></div><div class="line">        <span class="keyword">return</span> objectTarget.__class__.__name__</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getGeneratedIdForObject</span><span class="params">(self, objectTarget)</span>:</span></div><div class="line">        objectClassname = self.getClassNameForObject(objectTarget)</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> objectClassname <span class="keyword">in</span> ScriptifyInterceptor._sessionIdGenerated.keys():</div><div class="line">            ScriptifyInterceptor._sessionIdGenerated[objectClassname] = <span class="number">0</span></div><div class="line">        ScriptifyInterceptor._sessionIdGenerated[objectClassname] += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> ScriptifyInterceptor._sessionIdGenerated[objectClassname]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIdForObject</span><span class="params">(self, objectTarget)</span>:</span></div><div class="line">        objectId = id(objectTarget)</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> objectId <span class="keyword">in</span> ScriptifyInterceptor._sessionIds.keys():</div><div class="line">            ScriptifyInterceptor._sessionIds[objectId] = self.getGeneratedIdForObject(objectTarget)</div><div class="line">        <span class="keyword">return</span> ScriptifyInterceptor._sessionIds[objectId]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getVariableForObject</span><span class="params">(self, objectTarget)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.getClassNameForObject(objectTarget).lower() + <span class="string">"_"</span> + str(self.getIdForObject(objectTarget))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">invoke</span><span class="params">(self, invocation)</span>:</span></div><div class="line">        lstArgs = []</div><div class="line">        <span class="keyword">for</span> arg <span class="keyword">in</span> invocation.args:</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> isinstance(arg, int):</div><div class="line">                lstArgs.append(self.getVariableForObject(arg))</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                lstArgs.append(str(arg))</div><div class="line">        result = self.getClassNameForObject(invocation.instance) + <span class="string">"."</span> + invocation.method_name + <span class="string">"("</span> + str(<span class="string">", "</span>).join(lstArgs) + <span class="string">")"</span></div><div class="line">        objectReturned = invocation.proceed()</div><div class="line">        <span class="keyword">if</span> objectReturned:</div><div class="line">            result = self.getVariableForObject(objectReturned) + <span class="string">" = "</span> +  result</div><div class="line">        <span class="keyword">with</span> open(self._outputFilename, <span class="string">'a'</span>) <span class="keyword">as</span> script:</div><div class="line">            script.write(result+<span class="string">"\n"</span>)</div><div class="line">        <span class="keyword">return</span> objectReturned</div></pre></td></tr></table></figure><br><br>On met en place le système dans un script.<br><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> springpython.aop <span class="keyword">import</span> ProxyFactory</div><div class="line"><span class="keyword">from</span> ScriptifyInterceptor <span class="keyword">import</span> ScriptifyInterceptor</div><div class="line"><span class="keyword">from</span> LibCalcul <span class="keyword">import</span> LibCalcul</div><div class="line"></div><div class="line">scriptFilename = <span class="string">"testScriptify.py"</span></div><div class="line"><span class="keyword">with</span> open(scriptFilename, <span class="string">'w'</span>) <span class="keyword">as</span> script:</div><div class="line">    script.write(<span class="string">"from LibCalcul import LibCalcul\n\n"</span>)</div><div class="line"></div><div class="line">factory = ProxyFactory()</div><div class="line">factory.target = LibCalcul()</div><div class="line">factory.interceptors.append(ScriptifyInterceptor(scriptFilename))</div><div class="line">service = factory.getProxy()</div><div class="line"></div><div class="line">nombre1 = service.getNombre(<span class="number">10</span>)</div><div class="line">chiffre1 = service.getChiffre(<span class="number">5</span>)</div><div class="line">nombre2 = service.additionne(nombre1, chiffre1)</div><div class="line">service.printNombre(nombre2)</div></pre></td></tr></table></figure><br><br>Voilà le résulat.<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> LibCalcul <span class="keyword">import</span> LibCalcul</div><div class="line"></div><div class="line">nombre_1 = LibCalcul.getNombre(<span class="number">10</span>)</div><div class="line">chiffre_1 = LibCalcul.getChiffre(<span class="number">5</span>)</div><div class="line">nombre_2 = LibCalcul.additionne(nombre_1, chiffre_1)</div><div class="line">LibCalcul.printNombre(nombre_2)</div></pre></td></tr></table></figure><br><br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/clean-code/"  data-tooltip="Clean Code">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/atdd-by-example/" data-tooltip="ATDD, by Example">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/clean-code/"  data-tooltip="Clean Code">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/atdd-by-example/" data-tooltip="ATDD, by Example">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/moteur-de-script-en-python/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>User Stories Applied - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Dans la série des “Signature Book” de chez Addison Wesley,“User Stories Applied” est mon troisième livre approuvé par Kent Beck après “ATDD, by example” et “Test-Driven Development, by example”. Il m">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="User Stories Applied">
+<meta property="og:url" content="http://pierrepironin.fr/user-stories-applied/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="Dans la série des “Signature Book” de chez Addison Wesley,“User Stories Applied” est mon troisième livre approuvé par Kent Beck après “ATDD, by example” et “Test-Driven Development, by example”. Il m">
+<meta property="og:image" content="http://pierrepironin.fr/user-stories-applied/cover.jpg">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="User Stories Applied">
+<meta name="twitter:description" content="Dans la série des “Signature Book” de chez Addison Wesley,“User Stories Applied” est mon troisième livre approuvé par Kent Beck après “ATDD, by example” et “Test-Driven Development, by example”. Il m">
+<meta name="twitter:image" content="http://pierrepironin.fr/user-stories-applied/cover.jpg">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            User Stories Applied
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sat Oct 18 2014 17:10:05 GMT+0200">
+	
+		    18 octobre 2014
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div class="figure center"><img class="fig-img" src="/user-stories-applied/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div>
+<div style="text-align: justify; text-justify: inter-word"><br>Dans la série des<a href="http://www.pearsonhighered.com/educator/series/AddisonWesley-Signature-Series/10031.page" title="Signature books" target="_blank" rel="external"> “Signature Book”</a> de chez Addison Wesley,<em><a href="http://www.pearsonhighered.com/educator/product/User-Stories-Applied-For-Agile-Software-Development/9780321205681.page" title="User Stories Applied official site" target="_blank" rel="external">“User Stories Applied”</a></em> est mon troisième livre <em>approuvé</em> par Kent Beck après<em> <a href="http://pierrepironin.fr/atdd-by-example/" title="ATDD, by Example">“ATDD, by example”</a></em> et <em><a href="http://pierrepironin.fr/test-driven-development-by-example/" title="Test-Driven Development, By Example">“Test-Driven Development, by example”</a></em>. Il m’a été prêté par un ami, merci Damien pour le prêt longue durée ;)<br><br>Il a été écrit par <a href="http://www.mountaingoatsoftware.com/#mike" title="Mike Cohn twitter" target="_blank" rel="external">Mike Cohn</a> qui est l’un des membres foundateurs de <a href="http://www.agilealliance.org/" title="Agile Alliance" target="_blank" rel="external">Agile Alliance</a> et un développeur reconnu par ses pairs. Il est notamment l’un des spécialistes de Scrum, mettant en place cette méthodologie depuis plus de 20 ans et ayant écrit plusieurs livres sur le déploiement de l’agilité dans les projets informatiques.<br><br>Comment recueillir efficacement les besoins utilisateurs ? Comment rester au plus proche de ces besoins sans passer des mois à écrire des documents ? Comment différer le recueil de ces besoins au moment le plus opportun ? Comment estimer le travail à faire pour développer ces besoins ?<br>C’est pour répondre à toutes ces questions et bien d’autres que Mike Cohn nous présente les Users Stories apparues tout d’abord en eXtreme Programming et ayant évoluées depuis pour s’imposer comme l’une des meilleures méthodes de recueil de besoins dans un projet agile.<br><br>J’ai apprécié ce livre, assez facile à lire grâce à un découpage en petits paragraphes. A chaque fin de chapitre, on trouve un résumé (ce qui est une bonne idée si l’on veut reparcourir rapidement le livre plus tard pour se rafraîchir les idées) ainsi que des questions, moyen amusant de savoir ce que l’on a retenu de notre lecture.<br><br>Le livre est découpé en cinq parties :<br>&nbsp;&nbsp;&nbsp;&nbsp;1.  <strong><em>Getting started</em></strong> : présentation générale de ce qu’est une User Story et de comment on travaille avec.<br>&nbsp;&nbsp;&nbsp;&nbsp;2.  <strong><em>Estimating and Plannig</em> </strong>: comment estimer une User Story et comment planifier son développement<br>&nbsp;&nbsp;&nbsp;&nbsp;3.  <em><strong>Frequently Discussed Topics</strong></em> : bonnes pratiques et questions récurrentes sur les User Stories<br>&nbsp;&nbsp;&nbsp;4.  <em><strong>An Example</strong></em> : exemple avec mise en situation sur une boutique d’articles de pêche et de plongée souhaitant développer son e-commerce.<br>&nbsp;&nbsp;&nbsp;&nbsp;5.  <strong><em>Appendices</em></strong> : un premier appendice sur l’eXtreme Programming, méthodologie où sont apparues les User Stories et un deuxième contenant les réponses aux questions de fin de chapitre.<br><a id="more"></a><br>Je vais maintenant synthétiser les idées des résumés présents à chaque fin de chapitre des trois premières parties afin d’en faire un mémo.<br><br>La première partie, <strong>Getting Started</strong>, est découpée en sept chapitres consacrés à la découverte des user stories et de leur écriture.<br><br><em><strong>Chapitre 1 : Vue d’ensemble</strong></em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Une <em>story card</em> contient une courte description d’une fonctionnalité à valeur ajoutée pour l’utilisateur ou le client<br>&nbsp;&nbsp;&nbsp;&nbsp;- La <em>story card</em> est la partie visible d’une <em>story</em> mais le plus important reste la communication entre le client et les développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- L’équipe client inclut les personnes qui s’assureront que le logiciel répond aux attentes des utilisateurs. Elle peut inclure des testeurs, un responsable produit, des utilisateurs finaux et autres<br>&nbsp;&nbsp;&nbsp;&nbsp;- C’est l’équipe client qui rédige les <em>story cards</em> car c’est elle la mieux placée pour exprimer les besoins utilisateurs et parce que c’est elle qui sera en charge de détailler ces besoins avec les développeurs ainsi que de les prioriser<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> sont priorisées selon la valeur qu’elles apportent à l’entreprise<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les livraisons et les itérations sont plannifiées en plaçant les <em>stories</em> dans les itérations<br>&nbsp;&nbsp;&nbsp;&nbsp;- La vélocité représente la capacité de travail que peut fournir les développeurs pendant une itération<br>&nbsp;&nbsp;&nbsp;&nbsp;- La somme des estimations des <em>stories</em> placées dans une itération ne peut pas excéder la vélocité prévue par les développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Si une <em>story</em> ne rentre pas dans l’itération, elle peut être découplée en plusieurs <em>stories</em> plus petites<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation permettent de valider que la fonctionnalité développée est bien celle que l’équipe client avait en tête quand elle a rédigié la <em>story</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>users stories</em> révèlent leur valeur à l’utilisation car elle favorise la communication verbale, sont compréhensibles de la même façon par les développeurs et l’équipe client, sont utilisées pour planifier les itérations, fonctionnent bien dans les processus de développement itératif et surtout parce qu’elle encourage à retarder le recueil des détails concernant une <em>story</em><br><br><em><strong>Chapitre 2 : Écrire des stories</strong></em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Idéalement les <em>user stories</em> sont indépendantes les unes des autres. Ce n’est pas toujours possible mais pour faciliter cela, il faut essayer de les écrire de façon à ce qu’elle puisse être développées dans n’importe quel ordre<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les détails d’une <em>user story</em> sont négociés entre l’utilisateur et les développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> devraient être écrites de façon à refléter clairement la plus-value pour le client/utilisateur. La meilleure façon d’arriver à cela est de les faire écrire par le client/utilisateur lui-même.<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> peuvent être légèrement détaillées mais trop de détails peuvent amener à penser que la conversation entre développeur et client n’est pas nécessaire<br>&nbsp;&nbsp;&nbsp;&nbsp;- La meilleure façon d’annoter une <em>story</em> est de la compléter avec des cas tests<br>&nbsp;&nbsp;&nbsp;&nbsp;- Si des <em>stories</em> sont trop grosses ou trop complexes, elles peuvent être divisées en plusieurs plus petites.<br>&nbsp;&nbsp;&nbsp;&nbsp;- Si des <em>stories</em> sont trop petites, elles peuvent être regroupées pour en faire une seule<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> doivent être testables<br><br><strong><em>Chapitre 3 : Les rôles utilisateur</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- La plupart des équipes projet n’envisage qu’un seul type d’utilisateur. Ce qui peut amener à oublier certaines fonctionnalités<br>&nbsp;&nbsp;&nbsp;&nbsp;- Pour éviter cela, il faut identifier tous les utilisateurs qui peuvent interagir avec le logiciel<br>&nbsp;&nbsp;&nbsp;&nbsp;- Identifier des caractéristiques spécifiques à chaque utilisateur permet de mieux cerner les différences entre plusieurs rôles<br>&nbsp;&nbsp;&nbsp;&nbsp;- Certains rôles peuvent tirer bénéfice d’être associés à des <em>persona.</em> Un <em>persona</em> est une représentation imagée d’un rôle. Un <em>persona</em> possède un nom, un visage et suffisamment de détails pour qu’il soit le plus réaliste possible<br>&nbsp;&nbsp;&nbsp;&nbsp;- Dans certains cas, des personnage extrêmes peuvent être utiles pour explorer des <em>stories </em> qui auraient pu être oubliées<br><br><strong><em>Chapitre 4 : La collecte des stories</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- L’idée que les besoins existent quelque part et qu’il suffit de les capturer est fausse<br>&nbsp;&nbsp;&nbsp;&nbsp;- La métaphore de la pêche au chalut des besoins est plus utile : elle regroupe l’idée que les besoins peuvent être de différentes tailles, qu’ils peuvent changer souvent et qu’il faut une certaine technique pour les trouver<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> peuvent être collectées en interviewant les utilisateurs, en les observant utiliser le logiciel, par des questionnaires et en mettant en place des ateliers d’écriture de <em>stories</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les meilleurs résultats sont obtenus en faisant une combinaison de ces méthodes plutôt que de ne s’appuyer que sur l’une d’entre-elles.<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les questions les plus pertinentes sont les questions ouvertes, déchargées de contexte (ex : “<em>Tell me about how you’d like to search for a job</em>“ plutôt que “<em>Will you search for a job by title ?</em>“)<br><br><strong><em>Chapitre 5 : Travailler avec des représentants d’utilisateurs</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les représentants utilisateurs (i.e. proxy) sont moins pertinents que des utilisateurs finaux pour le recueil de besoins<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le supérieur hiérarchique des utilisateurs peut ne pas être un bon <em>user proxy</em> s’il n’est pas utilisateur lui-même<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le responsable de développement est un mauvais choix pour un <em>user proxy </em> car même s’il est impliqué dans le suivi des développement au jour le jour, il est souvent trop éloigné du profil utilisateur<br>&nbsp;&nbsp;&nbsp;&nbsp;- Dans les entreprises de taille conséquent, le <em>user proxy</em> vient souvent du service marketing. Ce peut être un bon choix mais il faut veiller à ne pas privilégier la quantité à la qualité<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les commerciaux peuvent être de bons <em>user proxy</em> si ils sont au contact régulier des utilisateurs. Attention à ce qu’ils ne se focalisent pas sur les fonctionnalités qui sont en relation directe avec leur chiffre de ventes<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les experts métier sont d’excellents <em>user proxy</em> mais il faut veiller à ce qu’ils ne dérivent pas sur des fonctionnalités nécessitant leur expertise du métier<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les clients, dans le sens de ceux qui achètent le logiciel, peuvent être de bons <em>user proxy</em> si ils sont en contact régulier avec les utilisateurs finaux.<br><br><strong><em>Chapitre 6 : Les tests d’acceptation</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation sont utilisés pour exprimer les détails résultant des conversations entre client et développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation permettent de documenter les hypothèses sur des détails qui n’auraient pas été discutés entre client et développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation permettent de valider qu’une <em>story</em> est complètement développée<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation devraient être écrits par le client plutôt que par le développeur<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les tests d’acceptation sont écrits avant que le développeur ne commence à coder<br>&nbsp;&nbsp;&nbsp;&nbsp;- Il y a suffisamment de tests lorsque l’écriture d’un test de plus n’apporte rien de plus<br>&nbsp;&nbsp;&nbsp;&nbsp;- FIT et FitNesse sont de bons outils pour que le client écrive facilement des tests d’acceptation<br><br><strong><em>Chapitre 7 : Bonnes pratiques pour bonnes stories</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Commencer par identifier des rôles utilisateur<br>&nbsp;&nbsp;&nbsp;&nbsp;- Lorsque l’on divise une <em>story</em>, il faut essayer de la diviser de manière à réunir tous les niveaux de l’application<br>&nbsp;&nbsp;&nbsp;&nbsp;- Compléter les <em>user stories</em> par toute la documentation nécessaire au domaine ou à l’environnement du projet<br>&nbsp;&nbsp;&nbsp;&nbsp;- Utiliser des cartes contraintes qui resteront afficher au mur pour s’assurer de respecter les règles transverses à toutes les <em>user stories</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Détailler plus en avant les <em>user stories</em>  qui seront commencé au plus vite<br>&nbsp;&nbsp;&nbsp;&nbsp;- Laisser l’interface utilisateur en dehors des <em>user stories</em> autant que possible<br>&nbsp;&nbsp;&nbsp;&nbsp;- Inclure le rôle utilisateur dans l’écriture de la <em>user story</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Ecrire les <em>user stories</em> à la voie active (ex: “<em>A Job Seeker can post a resume</em>“ plutôt que “<em>A resume can be posted by a Job Seeker</em>“)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Ecrire les <em>user stories</em> pour un seul utilisateur plutôt que plusieurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Laisser le client écrire les <em>user stories</em> plutôt que le développeur<br>&nbsp;&nbsp;&nbsp;&nbsp;- Garder la taille des <em>user stories</em> raisonnable et ne pas oublier qu’elles servent essentiellement de mémo aux conversations<br>&nbsp;&nbsp;&nbsp;&nbsp;- Ne pas numéroter les <em>story cards</em><br><br>La deuxième partie, <strong>Estimating and Planning</strong>, est composée de quatre chapitres consacrés à l’estimation et à l’élaboration du planning.<br><br><strong><em>Chapitre 8 : Estimer des User Stories</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Estimer les <em>stories</em> en <em>story points</em> qui sont des estimations relatives à la complexité ou la durée d’une <em>story</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les estimations doivent être faites par l’équipe. Tous les membres de l’équipe partagent cette estimation et non pas de manière individuelle<br>&nbsp;&nbsp;&nbsp;&nbsp;- La triangularisation est une méthode qui peut être utile et qui consiste à estimer une <em>user story</em> par rapport à d’autres<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le <em>pair programmnig</em> n’a pas d’impact sur l’estimation d’un <em>user story</em>, seulement sur la vélocité de l’équipe<br><br><strong><em>Chapitre 9 : Planifier une livraison (release)</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Avant de pouvoir planifier une livraison, il faut connaître approximativement quand le client veut son produit et quelles sont les priorités relatives des <em>stories</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> devraient être priorisées les unes par rapport aux autres (première , deuxième, troisième, etc) plutôt que par groupe (très importantes, importantes, peu importantes, etc)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>stories</em> sont priorisées par le client mais avec les conseils des développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les estimations, faites en jours idéaux, sont converties en jours calendaires grâce à la vélocité<br>&nbsp;&nbsp;&nbsp;&nbsp;- Il est souvent nécessaire d’estimer la vélocité initiale d’une équipe, à moins que celle-ci n’est déjà été constituée pour un projet antérieur<br><br><strong><em>Chapitre 10 : Planifier une itération (sprint)</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- La planification d’une itération va un peu plus dans le détail que la planification d’une livraison mais restreinte à l’itération à venir<br>&nbsp;&nbsp;&nbsp;&nbsp;- Pour planifier une itération, l’équipe discute chaque <em>user story</em> en la divisant en tâches<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le but du découpage en tâches est d’encourager plusieurs développeurs à travailler sur la même <em>user story</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Chaque développeur accepte les responsabilités d’une tâche<br><br><strong><em>Chapitre 11 : Mesurer et surveiller la vélocité</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Seules les <em>stories</em> terminées (i.e. qui passent les tests d’acceptation) sont comptabilisées pour le calcul de la vélocité. Les <em>stories</em> en cours seront comptées sur la prochaine itération<br>&nbsp;&nbsp;&nbsp;&nbsp;- Un bon moyen de comparer la vélocité actuelle et celle prévue est de faire un graphe avec à la fois les <em>story points</em> accomplis durant l’itération en cours et ceux prévus<br>&nbsp;&nbsp;&nbsp;&nbsp;- La tendance de la vélocité ne peut être fait qu’après 2 ou 3 premières itérations car les premières itérations ne sont pas significatives<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le nombre d’heures effectivement réalisées sur une tâche ne modifie en rien la vélocité<br>&nbsp;&nbsp;&nbsp;&nbsp;- Afficher de grands et compréhensibles graphiques dans un espace où tout le monde peut les voir<br>&nbsp;&nbsp;&nbsp;&nbsp;- Un <em>cumulative story point chart</em> permet de voir le nombre total de <em>story points</em> effectués jusqu’à la fin de l’itération<br>&nbsp;&nbsp;&nbsp;&nbsp;- L’ <em>iteration</em> <em>burdown chart </em>(à ne pas confondre avec le <em>daily burndown chart</em>) montre à la fois la progression sous la forme de <em>story points</em> accomplis par itération ainsi que le reste à faire jusqu’à la fin de la <em>release</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Le <em>daily burndown chart</em> est très utile pendant une itération pour voir le temps passé et le reste à faire jusqu’à la fin de l’itération<br>&nbsp;&nbsp;&nbsp;&nbsp;- Capitaliser et surveiller le nombre de <em>bugs</em> par <em>story point</em> peut-être utile pour vérifier que l’accroissement de la vélocité ne se fait pas aux dépens de la qualité<br><br>La troisième partie, <strong>Frequently Discussed Topics, </strong>est composée de cinq chapitres consacrés aux bonnes pratiques et questions récurrentes sur les <em>user stories. </em> Nous nous intéresserons ici aux deux premiers.<br><br><strong><em>Chapitre 12 : Ce que les user stories ne sont pas</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Ce ne sont ni des spécifications de type IEEE 830, ni des <em>use cases,</em> ni des scénarios d’interaction<br>&nbsp;&nbsp;&nbsp;&nbsp;- Peu importe le temps et l’effort qu’il passe à réfléchir et réfléchir encore, personne  ne peut prévoir totalement et parfaitement un système non trivial<br>&nbsp;&nbsp;&nbsp;&nbsp;- Le retour d’expérience d’un utilisateur qui définit lui-même ses besoins et qui manipule fréquemment les fonctionnalités qui en découlent, est très enrichissant<br>&nbsp;&nbsp;&nbsp;&nbsp;- Il est plus important de chercher à atteindre l’attendu d’un utilisateur plutôt que la liste des attributs d’une solution<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> se rapprochent des <em>use cases</em> mais les <em>use cases</em> tendent à être plus gros et sont plus sujets à contenir des hypothèses sur l’interface utilisateur<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>use cases</em> sont destinés à être des artefacts permanents alors que les <em>user stories</em> servent principalement de support pour conversations<br><br><strong><em>Chapitre 13 : Pourquoi utiliser les user stories</em></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> forcent à la communication orale contrairement à d’autres techniques de spécification<br>&nbsp;&nbsp;&nbsp;&nbsp;- Ceci permet un retour d’expérience rapide ce qui amène à une meilleure compréhension des besoins<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> sont compréhensibles aussi bien par le client que les développeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> sont à la bonne échelle pour une planification itérative<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> encouragent le report au moment le plus propice de la description en détails<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> encouragent la participation de tous<br>&nbsp;&nbsp;&nbsp;&nbsp;- Les <em>user stories</em> peuvent aussi avoir quelques défauts :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- sur de gros projets, il peut être fastidieux d’organiser des centaines voir des milliers de <em>stories</em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- il peut être nécessaire de les compléter avec d’autres documentations pour avoir de la traçabilité<br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGÉ DANS</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Mike-Cohn/">Mike Cohn</a> <a class="tag tag--primary tag--small t-link" href="/tags/Scrum/">Scrum</a> <a class="tag tag--primary tag--small t-link" href="/tags/User-Stories/">User Stories</a> <a class="tag tag--primary tag--small t-link" href="/tags/agile/">agile</a> <a class="tag tag--primary tag--small t-link" href="/tags/eXtreme-Programming/">eXtreme Programming</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/agile-tour-bordeaux-2014/"  data-tooltip="Agile Tour Bordeaux 2014">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/the-clean-coder/" data-tooltip="The Clean Coder">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/agile-tour-bordeaux-2014/"  data-tooltip="Agile Tour Bordeaux 2014">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/the-clean-coder/" data-tooltip="The Clean Coder">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/user-stories-applied/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

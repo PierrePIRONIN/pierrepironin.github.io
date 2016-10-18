@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://pierrepironin.fr</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/pomodoro-at-work/</loc>
+        <lastmod>2016-10-18T20:36:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/Elixir/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/deploiement-continu-nodejs/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/Let-s-encrypt/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/agile-playground-3/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/agile-tour-bordeaux-2014/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/agile-tour-clermont-ferrand-2013/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/agile-tour-clermont-ferrand-2014/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/atdd-by-example/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/clean-code/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/cure-de-jouvence-java/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/docker-et-mongodb/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/effective-java/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/gitlab-backup/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-bigdata-et-integration-en-entreprise/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-developpeur-front-end-en-milieu-hostile/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-lambda-bestiary/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-on-the-path-to-wisdom/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-organisation-methode-devops-usines-logicielles/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lava-jug-soiree-et-workshop-mongodb/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lavajug-s04e06/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lavajug-virtualisation/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/ma-premiere-presentation-sur-lagilite/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/moteur-de-script-en-python/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/test-driven-development-by-example/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/the-clean-coder/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/the-lean-startup/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/the-pragmatic-programmer/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/the-well-grounded-java-developer/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/user-stories-applied/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

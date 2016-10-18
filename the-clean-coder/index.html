@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>The Clean Coder - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Dans “Clean Code”, Robert C. Martin nous décrivait les aspects techniques qui caractérisaient selon lui un bon développeur professionnel : un Software Craftsman. Dans “The Clean Coder”, il reprend le">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="The Clean Coder">
+<meta property="og:url" content="http://pierrepironin.fr/the-clean-coder/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="Dans “Clean Code”, Robert C. Martin nous décrivait les aspects techniques qui caractérisaient selon lui un bon développeur professionnel : un Software Craftsman. Dans “The Clean Coder”, il reprend le">
+<meta property="og:image" content="http://pierrepironin.fr/the-clean-coder/cover.jpg">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Clean Coder">
+<meta name="twitter:description" content="Dans “Clean Code”, Robert C. Martin nous décrivait les aspects techniques qui caractérisaient selon lui un bon développeur professionnel : un Software Craftsman. Dans “The Clean Coder”, il reprend le">
+<meta name="twitter:image" content="http://pierrepironin.fr/the-clean-coder/cover.jpg">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            The Clean Coder
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sun Sep 21 2014 19:22:08 GMT+0200">
+	
+		    21 septembre 2014
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div class="figure center"><img class="fig-img" src="/the-clean-coder/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div>
+<div style="text-align: justify; text-justify: inter-word"><br>Dans <a href="http://pierrepironin.fr/clean-code/" title="Clean Code"><em>“Clean Code”</em></a>, <a href="http://www.objectmentor.com/omTeam/martin_r.html" title="Robert C. Martin" target="_blank" rel="external">Robert C. Martin</a> nous décrivait les aspects techniques qui caractérisaient selon lui un bon développeur professionnel : un Software Craftsman. Dans <a href="http://www.pearsonhighered.com/educator/product/Clean-Coder-The-A-Code-of-Conduct-for-Professional-Programmers/9780137081073.page" title="The Clean Coder official" target="_blank" rel="external"><em>“The Clean Coder”</em></a>, il reprend le même principe mais en l’appliquant aux aspects humains et relationnels pour nous faire partager son guide de conduite d’un développeur professionnel.<br><br>J’ai apprécié ce livre car il pousse le concept de développeur professionnel encore plus loin en donnant quelques bonnes pratiques non pas dans les compétences techniques, mais dans son attitude vis-à-vis des autres membres de son environnement de travail (collègue développeur, manager, client, etc); ce qui est tout aussi important !<br>Ce livre devrait être étudié dans tous cursus de génie logiciel !<br><br>Contrairement à “<em>Clean Code</em>“ où d’autres grands noms du développement logiciel avaient prêté leur plume pour écrire quelques chapitres, “<em>The Clean Coder</em>“ est entièrement écrit par Robert C. Martin et ne reflète que son point de vue personnel, ce qu’il répète plusieurs fois tout au long du livre. Il faut donc appréhender cette lecture comme le résumé de son expérience professionnel et l’enseignement qu’il a su en tirer. Au lecteur de piocher ce qui l’intéresse pour s’approcher d’un idéal, en ayant conscience que tout n’est pas toujours atteignable à 100%.<br><br>J’ai personnellement repris beaucoup de ses pratiques (“Savoir dire non” notamment) mais j’en ai aussi laissé de côté car trop éloignées de notre philosophie européenne pour être applicables :) Ce livre m’a fait beaucoup évoluer dans mon attitude professionnel et vis-à-vis de mon travail, je le recommande vivement !<br><a id="more"></a><br>Si les premiers chapitres sont plutôt orientés réflexion sur soi, les suivants sont plutôt orientés réflexion vis-à-vis des autres.<br><br><em><strong>Chapitre 1 : Professionnalisme</strong></em><br>Être développeur professionnel, c’est être fier du travail que l’on réalise mais c’est aussi en assumer la responsabilité et les imperfections. Il met tout en œuvre pour que son code soit de la meilleure qualité possible et bannit le laisser-aller et les “je corrigerai plus tard”.<br>Le point le plus important de ce chapitre est certainement celui-ci : le développeur professionnel est maître de sa carrière, c’est à lui de se former et d’apprendre en continu, il ne doit pas attendre que son employeur le lui propose.<br>Enfin, on peut être fier de son travail (voir un peu arrogant ;) ) mais il faut aussi savoir rester humble quand des bugs sont découverts; le développeur professionnel assume et ne cherche pas des excuses ou boucs émissaires.<br><br><em><strong>Chapitre 2 : Savoir dire non</strong></em><br>Le travail en équipe amène naturellement des points durs, des confrontations d’opinions notamment avec la hiérarchie et son responsable. Le développeur professionnel connaît ses capacités et le rythme de travail qu’il peut supporter. Il estime les tâches en fonction de ces critères.<br>La pression de certains managers qui aiment “challenger” en demandant de revoir à la baisse l’estimation n’est pas un comportement responsable. En faisant cela, le manager estime que le développeur n’a pas été honnête avec lui et qu’il lui a donc caché une “réserve” de temps “au cas où”.<br>Le développeur professionnel doit savoir dire non à cela et rester ferme sur ses estimations qu’il a fait au plus juste. Il doit notamment bannir le “je vais essayer” qui ne peut rien apporter de bon : soit le développeur va travailler plus que de raison, ce qui peut amener au “burn-out” si cela est répété souvent, soit la qualité du code produit va être sacrifié, ce qui coûtera encore plus cher à l’application plus tard.<br>Enfin, le développeur professionnel ne doit pas faire d’agression passive. Lorsqu’il sent qu’un problème couve (un bug latent, une mauvaise conception qu’il faudra remettre totalement en cause quand il sera trop tard, etc), il doit faire tout ce qui est possible pour désamorcer la situation au plus vite en communicant et répétant les choses même face à l’incompréhension ou au refus de son responsable. L’attitude d’agression passive consiste à laisser courir lorsqu’un refus nous est opposé et à dire “je vous l’avais bien dit” lorsque le problème arrive, ceci est contraire au bon déroulement du projet.<br><br><em><strong>Chapitre 3 : Savoir dire oui</strong></em><br>Pour un développeur professionnel, dire oui c’est s’engager, ce n’est pas essayer !<br>On reconnaît les défauts d’engagement par des expressions du langage. Par exemple, les “on devrait faire”, “il faudrait faire”, “j’espère que ce sera fait” ne sont pas des marques d’engagement fort.<br><br><em><strong>Chapitre 4 : Coder</strong></em><br>Ce chapitre est consacré à l’écriture de code. Robert C. Martin nous donne ses bonnes habitudes et quelques conseils pour être efficace dans les tâches de programmation (éviter de coder à 3h du matin, prendre soin de son code, s’aérer l’esprit devant un blocage, etc).<br>C’est l’un des chapitres les plus personnels du livre, on est d’accord ou pas. Par exemple, je ne suis pas d’accord quand il dit que la “zone”, cette période d’hyperconcentration que l’on a de de temps en temps, n’est pas efficace et que ce n’est qu’une illusion.<br>Un point important est d’accorder du temps à l’entraide. Il faut savoir aider et surtout accepter d’être aidé.<br><br><em><strong>Chapitre 5 : Test Driven Development</strong></em><br>Robert C. Martin nous fait part de l’échange qu’il a eu avec Kent Beck qui lui a montré la philosophie du <a href="http://pierrepironin.fr/test-driven-development-by-example/" title="Test-Driven Development, By Example">Test Driven Development</a>. D’abord réticent, Robert devient un farouche partisan de cette méthode et ne jure plus que par celle-ci.<br><br><em><strong>Chapitre 6 : L’entraînement</strong></em><br>Comme tout professionnel (musicien, soldat, médecin), un développeur doit s’entraîner pour maîtriser certaines pratiques qu’il réalise quasiment tous les jours. C’est une bonne méthode pour devenir efficace.<br>Ici Robert nous parle d’entraînement donc, de Coding Dojo, de Kata, de Randori et de l’open source qui est un monde rigoureux pour prendre de bonnes habitudes.<br><br><em><strong>Chapitre 7 : Tests d’acceptation</strong></em><br>Comment favoriser la communication entre équipe de développement et représentant client, tout en mettant par écrit les engagements pris ? Une solution est d’utiliser les tests d’acceptation plutôt que des plans de tests volumineux et forcément imprécis.<br>Les tests d’acceptation écrits avant de développer (<a href="http://pierrepironin.fr/atdd-by-example/" title="ATDD, by Example">ATDD</a>) permettent de fournir des cas reproductibles donc testables des besoins du client. Ainsi le travail est fini (“done”) quand tous les tests passent. Robert nous donne quelques conseils sur comment les écrire, qui les écrit et comment les dérouler. Il a une bonne expérience sur le sujet car il est le fondateur de <a href="http://www.fitnesse.org/" title="Fitnesse" target="_blank" rel="external">Fitnesse</a>, un outil d’ATDD.<br><br><em><strong>Chapitre 8 : Stratégies de test</strong></em><br>Petit chapitre consacré aux différents tests utilisés par le développeur professionnel : tests d’acceptation, tests d’intégration, tests de charge et de performance.<br><br><em><strong>Chapitre 9 : Gestion du temps</strong></em><br>Comment être le plus efficace possible pour réaliser le maximum de tâches dans une journée ?<br>Premier item abordé : les réunions. Les réunions sont essentielles mais elles prennent un temps considérable. La “réunionite” est un mal qui peut affecter certains services. Il ne faut pas avoir peur de refuser une réunion si on ne sent pas concerné. De même, il faut savoir quitter, poliment !,  une réunion où on n’est pas utile.<br>Deuxième item, comment gérer sa capacité de concentration. La concentration n’est pas disponible indéfiniment dans une journée, il faut savoir réserver du temps pour l’utiliser efficacement.<br>Enfin, Robert décrit l’importance du “time boxing”, la nécessité absolue de borner les activités et surtout les réunions.<br><br><em><strong>Chapitre 10 : Estimation</strong></em><br>Qu’est qu’une estimation ? Une estimation n’est pas un engagement, ni une promesse. Se tromper dans une estimation n’est pas une faute incorrigible. Robert nous présente quelques astuces pour faire de bonnes estimations et notamment la méthode <a href="http://www.pmdocuments.com/2012/09/17/pert-three-point-estimation-technique/" title="PERT" target="_blank" rel="external">PERT</a> basée sur des fourchettes et non sur une valeur unique.<br>Il nous présente aussi quelques techniques pour estimer des tâches comme le planning poker par exemple.<br><br><em><strong>Chapitre 11 : Pression</strong></em><br>Un développeur professionnel a plusieurs outils pour résister à la pression et garder son sang-froid en période de “rush”.<br>Le premier outil est de faire le maximum pour éviter la pression notamment en gardant tout le temps un code propre.<br>Quand la pression arrive, il faut garder son sang-froid et ne pas paniquer. Il faut garder les pratiques qui font leurs preuves et avec lesquelles on est confortable. Il faut aussi augmenter la communication et ne pas se renfermer dans sa bulle.<br><br><em><strong>Chapitre 12 : Collaboration</strong></em><br>Deux parties dans ce chapitre : le développeur face à son employeur et le développeur face aux autres développeurs.<br><br><em><strong>Chapitre 13 : Équipes vs projets</strong></em><br>Ce court chapitre est peut-être l’un des plus précieux de ce livre à mes yeux. Il met en lumière l’importance d’une équipe. Une équipe met du temps à se former, à adopter des automatismes, à devenir efficace, comme une équipe sportive !<br>Traditionnellement, on monte un projet et on choisit une équipe en conséquence. Ceci est nettement moins efficace que de monter une équipe et de lui attribuer des projets au fil du temps.<br>Lorsque l’on change d’équipe à chaque projet, tout le processus d’amorçage (qui n’est pas négligeable en temps et coût) est à refaire. De plus, toute les équipes ne fonctionnent pas, certains caractères sont incompatibles par exemple.<br>Lorsqu’une équipe est en route et fonctionne bien, un manager devrait tout faire pour garder cette équipe-là et lui attribuer des projets : tout le monde serait gagnant !<br><br><em><strong>Chapitre 14 : Mentorat, Apprentissage et Artisanat</strong></em><br>Dans ce chapitre, Robert met l’accent sur l’importance des mentors. Étant déçu par le niveau de certains jeunes diplômés soi-disant de grandes écoles, Robert décrit un système proche des compagnons chez nous où un mentor, un maître, enseigne ce qu’il sait à des apprentis.<br>Plus généralement, les développeurs professionnels (les Sotfware Craftsman) devrait se réunir en réseau, échangeant et apprenant les uns avec les autres. Ce réseau n’est pas très étoffé en France mais des association comme le <a href="http://www.lavajug.org/xwiki/bin/view/Main/WebHome" title="LavaJUG" target="_blank" rel="external">LavaJUG</a>, l’<a href="http://www.meetup.com/A-Cube/" title="A-Cube" target="_blank" rel="external">A-Cube</a> et bien d’autres permettent de se retrouver entre confères de temps en temps !<br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGÉ DANS</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Robert-C-Martin/">Robert C. Martin</a> <a class="tag tag--primary tag--small t-link" href="/tags/TDD/">TDD</a> <a class="tag tag--primary tag--small t-link" href="/tags/software-craftsmanship/">software craftsmanship</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/user-stories-applied/"  data-tooltip="User Stories Applied">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/agile-playground-3/" data-tooltip="Agile Playground Clermont-Ferrand #3">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/user-stories-applied/"  data-tooltip="User Stories Applied">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/agile-playground-3/" data-tooltip="Agile Playground Clermont-Ferrand #3">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-clean-coder/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>The Pragmatic Programmer - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="“The Pragmatic Programmer” est une bible pour les développeurs. Il est l’œuvre d’Andrew Hunt et Dave Thomas d’après leurs expériences en tant que développeurs. Leur objectif est simple, faire du lect">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="The Pragmatic Programmer">
+<meta property="og:url" content="http://pierrepironin.fr/the-pragmatic-programmer/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="“The Pragmatic Programmer” est une bible pour les développeurs. Il est l’œuvre d’Andrew Hunt et Dave Thomas d’après leurs expériences en tant que développeurs. Leur objectif est simple, faire du lect">
+<meta property="og:image" content="http://pierrepironin.fr/the-pragmatic-programmer/cover.jpg">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Pragmatic Programmer">
+<meta name="twitter:description" content="“The Pragmatic Programmer” est une bible pour les développeurs. Il est l’œuvre d’Andrew Hunt et Dave Thomas d’après leurs expériences en tant que développeurs. Leur objectif est simple, faire du lect">
+<meta name="twitter:image" content="http://pierrepironin.fr/the-pragmatic-programmer/cover.jpg">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            The Pragmatic Programmer
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Mon Jan 13 2014 21:27:55 GMT+0100">
+	
+		    13 janvier 2014
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div class="figure center"><img class="fig-img" src="/the-pragmatic-programmer/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div>
+<div style="text-align: justify; text-justify: inter-word"><br><a href="http://pragprog.com/the-pragmatic-programmer" target="_blank" rel="external">“The Pragmatic Programmer”</a> est une bible pour les développeurs. Il est l’œuvre d’Andrew Hunt et Dave Thomas d’après leurs expériences en tant que développeurs. Leur objectif est simple, faire du lecteur un <strong>Pragmatic Programmer</strong>, un développeur fier de son travail et qui utilise les meilleures techniques à sa disposition pour faire un travail de qualité.<br><br>J’ai vraiment apprécié ce livre facile à lire, rempli de métaphores et tellement inspirant. Il donne envie d’appliquer dans notre quotidien professionnel tous les bons conseils et techniques que les auteurs nous donnent.<br><br>Pour chacune de mes lectures, j’essaierais de faire un résumé des points importants à retenir afin que ces lectures ne soient pas perdues.<br>Pour le résumé de “The Pragmatic Programmer”, je vais reprendre les “tips” qui accompagne les 46 items.<br><a id="more"></a><br><strong><em>Tips :</em></strong><br><br>1.  <strong>Care About Your Craft
+</strong>Pourquoi passer son temps à développer des logiciels si on ne prend pas le soin de le faire bien ?<br>2.  <strong>Think! About Your Work
+</strong>Désactiver le pilote automatique et prenez le contôle. Ayez un sens critique et réévaluez constamment votre travail.<br>3.  <strong>Provide Options, Don’t Make Lame Excuses
+</strong>Au lieu de fournir des excuses, proposez des solutions de contournement. Au lieu de dire que c’est impossible, expliquez ce qu’il est possible de faire à la place.<br>4.  <strong>Don’t Live with Broken Windows
+</strong>Améliorer les mauvais choix de conception, les mauvaises décisions et le code “sale” quand vous tombez dessus.<br>5.  <strong>Be a Catalyst for Change
+</strong>Vous ne pouvez pas imposer le changement aux personnes. Montrez leur plutôt comment pourrait être le futur et encouragez-les à participer à sa création.<br>6.  <strong>Remember the Big Picture
+</strong>Ne restez pas le “nez dans le guidon” et levez la tête pour voir ce qui se passe autour de vous.<br>7.  <strong>Make Quality a Requirements Issue
+</strong>Impliquez vos utilisateurs à définir le niveau réel de qualité du projet.<br>8.  <strong>Invest Regularly in Your Knowledge Portfolio
+</strong>Apprendre doit devenir une habitude, un réflexe.<br>9.  <strong>Critically Analyze What You Read and Hear
+</strong>Ne vous laisser pas influencer par les vendeurs, “buzzs” médiatiques, ou dogmes. Analyser les informations dans votre contexte et celui de votre projet.<br>10.  <strong>It’s Both What You Say and the Way You Say It
+</strong>De bonnes idées ne sont rien sans une communication efficace.<br>11.  <strong><em>DRY</em> - Don’t Repeat Yourself
+</strong>Chassez la duplication. Chaque connaissance, au sens large, doit avoir une représentation unique, non ambigu et faisant référence pour tout le système.<br>12.  <strong>Make It Easy to Reuse
+</strong>Si votre code est facilement réutilisable, il sera réutilisé. Créer un environnement qui encourage la réutilisabilité.<br>13.  <strong>Eliminate Effects Between Unrelated Things
+</strong>Concevez des composants indépendants et qui ont un but unique et bien défini.<br>14.  <strong>There Are No Final Decisions
+</strong>Aucune décision n’est gravé dans la pierre. Voyez-les plutôt comme inscrites dans du sable à la plage et préparez-vous aux changements.<br>15.  <strong>Use Tracer Bullets to Find the Target
+</strong>L’utilisation de “balles traçantes” permet de raffiner vos idées en essayent des choses et en voyant comment elles se comportent en situation réelle.<br>16.  <strong>Prototype to Learn
+</strong>Le prototypage est une expérience d’apprentissage. Sa valeur n’est pas dans le code que vous produisez mais dans les leçons que vous pouvez en tirer.<br>17.  <strong>Program Close to the Problem Domain</strong><br>Concevez et codez dans le langage de vos utilisateurs.<br>18.  <strong>Estimate to Avoid Surprises</strong><br>Estimer avant de commencer. Vous ferez remonter les problèmes potentiels à la surface<br>19.  <strong>Iterate the Schedule with the Code</strong><br>Utiliser l’expérience acquise au cours du projet pour affiner vos estimations.<br>20.  <strong>Keep Knowledge in Plain Text</strong><br>Contrairement à des formats fermés, le “plain text” ne peut devenir obsolète. De plus, il facilite le debuggage et les tests.<br>21.  <strong>Use the Power of Command Shell</strong><br>Ne sous-estimez pas la puissance des commandes Shell face aux interfaces graphiques.<br>22.  <strong>Use a Single Editor Well</strong><br>L’éditeur de texte devrait être une extension de vos mains. Assurez-vous que votre éditeur est configurable, extensible et programmable.<br>23.  <strong>Always Use Source Code Control</strong><br>Un gestionnaire de versions est une machine à voyager dans le temps pour votre travail : vous pouvez revenir dans le passé.<br>24.  <strong>Fix the Problem, Not the Blame</strong><br>Peu importe si un bug est votre faute ou celle d’un autre, ça reste toujours votre problème et il nécessite toujours d’être corrigé.<br>25.  <strong>Don’t Panic When Debugging
+</strong>Prenez une grosse inspiration et réfléchissez sur la cause du bug.<br>26.  <strong>“select” Isn’t Broken</strong><br>Il est rare de trouver un bug dans le système d’exploitation ou dans le compilateur, ou même dans une bibliothèque tierce. Le problème est plus vraisemblablement dans l’application.<br>27.  <strong>Don’t Assume It, Prove It</strong><br>Prouver vos intuitions dans l’environnement du projet avec les données réelles et les conditions limites.<br>28.  <strong>Learn a Text Manipulation Language</strong><br>Vous passez la majeure partie de votre journée à travailler avec du texte. Pourquoi ne pas laisser l’ordinateur en faire un peu à votre place ?<br>29.  <strong>Write Code That Writes Code</strong><br>Les générateurs de code augmente votre productivité et évite la duplication d’information.<br>30.  <strong>You Can’t Write Perfect Software</strong>Il n’y a pas de logiciel parfait. Protéger votre code et les utilisateurs des inévitables erreurs.<br>31.  <strong>Design with Contracts</strong><br>Utiliser la notion de contrat comment documentation et pour vous assurer que votre code ne fasse ni plus ni moins que ce qu’il prétend.<br>32.  <strong>Crash Early</strong><br>Un programme mort fait normalement moins de dégât qu’un programme estropié.<br>33.  <strong>Use Assertions to Prevent the Impossible</strong><br>Une assertion valide vos hypothèses. Utilisez-les pour protéger votre code d’un monde incertain.<br>34.  <strong>Use Exceptions for Exceptional Problems</strong>Réservez les exceptions aux choses exceptionnelles.<br>35.  <strong>Finish What You Start</strong><br>Quand c’est possible, une routine ou un objet qui alloue une ressource devrait aussi être responsable de sa désallocation.<br>36.  <strong>Minimize Coupling Between Modules</strong><br>Évitez le couplage en écrivant du code “timide” et en appliquant la Loi de Déméter.<br>37.  <strong>Configure, Don’t Integrate</strong>Implémentez les choix de technologies pour une application avec des options de configuration plutôt que par de l’intégration.<br>38.  <strong>Put Abstractions in Code, Details in Metadata</strong><br>Programmez pour le cas général et placer les spécificités en dehors du code compilé.<br>39.  <strong>Analyze Workflow to Improve Concurrency</strong><br>Utiliser la concurrence pour améliorer les flux de votre application.<br>40.  <strong>Design Using Services</strong><br>Concevez en termes de services : des objets indépendants, concurrents derrière des interfaces bien définies et cohérentes.<br>41.  <strong>Always Design for Concurrency</strong>Autorisez l’accès concurrent et vous concevrez des interfaces plus propres avec moins d’hypothèses.<br>42.  <strong>Separate Views from Models</strong><br>Gagnez en flexibilité facilement en concevant vos applications en termes de modèles et de vues.<br>43.  <strong>Use Blackboards to Coordinate Workflow</strong><br>Utiliser des “tableaux noirs” permet de coordonner des faits et des agents très différents tout en maintenant  l’indépendance et l’isolation des différents participants.<br>44.  <strong>Don’t Program by Coincidence</strong><br>Ne compter que sur des choses fiables. Méfiez-vous des complexités accidentelles et ne confondez pas une heureuse coïncidence avec un plan bien déterminé.<br>45.  <strong>Estimate the Order of Your Algorithms</strong><br>Ayez une idée de combien de temps vont prendre vos routines avant de les écrire.<br>46.  <strong>Test Your Estimates</strong><br>L’analyse mathématique de vos algorithmes ne vous dit pas tout. Essayez de mesurer votre code dans l’environnement cible.<br>47.  <strong>Refactor Early, Refactor Often</strong><br>Tout comme réarranger un jardin et enlever la mauvaise herbe, réécrivez, retravailler et revoyez l’architecture de votre code quand c’est nécessaire. Attaquez-vous à la racine du problème.<br>48.  <strong>Design to Test</strong><br>Commencer à réfléchir aux tests avant d’écrire la moindre ligne de code.<br>49.  <strong>Test Your Software, or Your Users</strong> <strong>Will</strong><br>Tester impitoyablement. Ne laissez pas les utilisateurs trouver les bugs pour vous.<br>50.  <strong>Don’t Use Wizard Code You Don’t Understand</strong><br>Les assistants peuvent générer des portions de code. Soyez sûr de les comprendre dans leur globalité avant de les intégrer dans votre projet.<br>51.  <strong>Don’t Gather Requirements, Dig for Them</strong><br>Les besoins émergent rarement tous seuls. Ils sont souvent enfouis sous des couches d’hypothèses, de méconnaissance et de politique.<br>52.  <strong>Work with a User to Think Like a User</strong><br>C’est la meilleure façon de voir comment un système est utilisé dans des conditions réelles.<br>53.  <strong>Abstractions Live Longer than Details</strong><br>Investissez dans l’abstraction, pas dans l’implémentation. Les abstractions peuvent survivre aux changements d’implémentations et de technologies.<br>54.  <strong>Use a Project Glossary</strong><br>Créez et maintenez une source unique de tous les termes et vocabulaire spécifiques au projet.<br>55.  <strong>Don’t Think Outside the Box, Find the Box</strong><br>Devant un problème impossible, identifiez les contraintes réelles. Demandez-vous : “Est-ce que ce doit être traité de cette façon ? Est-ce que ça doit être fait tout court ?”<br>56.  <strong>Start When You’re Ready</strong><br>Vous augmentez votre expérience toute votre vie. Ne sous-estimez pas vos doutes et votre petite voix intérieure.<br>57.  <strong>Some Things Are Better Done than Described</strong><br>Ne tombez pas dans la spirale de spécifications, à un moment il faut commencer à coder.<br>58.  <strong>Don’t Be a Slave to Formal Methods</strong><br>N’adoptez pas les yeux fermés n’importe quelle technique sans la confronter avec le contexte des pratiques et capacités de développement de votre projet.<br>59.  <strong>Costly Tools Don’t Produce Better Designs</strong><br>Méfiez-vous des super vendeurs, des dogmes de l’industrie et de l’aura des prix. Jugez les outils sur leurs mérites.<br>60.  <strong>Organize Teams Around Functionality</strong><br>Ne séparez pas les concepteurs des codeurs et des testeurs. Construisez vos équipes comme vous construisez votre code.<br>61.  <strong>Don’t Use Manual Procedures</strong><br>Un script exécutera les mêmes instructions dans le même ordre, jour après jour.<br>62.  <strong>Test Early, Test Often, Test Automatically</strong><br>Des tests joués à chaque “build” sont beaucoup plus efficaces que des plans de tests qui dorment sur une étagère.<br>63.  <strong>Coding Ain’t Done Until All the Tests Run</strong>Tout est dit !<br>64.  <strong>Use Saboteurs to Test Your Testing</strong><br>Placer des bugs volontairement dans une copie du code source pour vérifier que vous tests les capturent.<br>65.  <strong>Test State Coverage, Not Code Coverage</strong><br>Identifier et tester les états significatifs de votre programme. Tester seulement les lignes de code n’est pas suffisant.<br>66.  <strong>Find Bugs Once</strong><br>Une fois qu’un testeur humain trouve un bug, ça devrait la dernière fois qu’un humain trouve ce bug.<br>67.  <strong>English is Just a Programming Language</strong>Écrivez vos documents comme vous écrivez votre code : respectez le principe “<em>DRY</em>“, utilisez les metadata, MVC, génération automatique, etc<br>68.  <strong>Build Documentation In, Don’t Bolt It On</strong><br>La documentation écrite en dehors du code a peu de chance d’être correcte et à jour.<br>69.  <strong>Gently Exceed Your Users’ Expectations</strong><br>Commencez par comprendre les attentes de vos utilisateurs, et ensuite délivrez-leur à peine plus.<br>70.  <strong>Sign Your Work</strong><br>De tout temps, les artisans sont fiers de ce qu’ils produisent. Vous devriez l’être aussi.<br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lava-jug-lambda-bestiary/"  data-tooltip="Lava JUG - Lambda Bestiary">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/ma-premiere-presentation-sur-lagilite/" data-tooltip="Ma première présentation sur l&#39;Agilité">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lava-jug-lambda-bestiary/"  data-tooltip="Lava JUG - Lambda Bestiary">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/ma-premiere-presentation-sur-lagilite/" data-tooltip="Ma première présentation sur l&#39;Agilité">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/the-pragmatic-programmer/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

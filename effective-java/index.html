@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>Effective Java - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Première étape de ma cure de rattrapage Java : repartir des bases de Java 6. Pour cela, j’avais déjà ce qu’il me fallait dans ma bibliothèque: Effective Java, Second Edition de Joshua Bloch que j’avai">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Effective Java">
+<meta property="og:url" content="http://pierrepironin.fr/effective-java/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="Première étape de ma cure de rattrapage Java : repartir des bases de Java 6. Pour cela, j’avais déjà ce qu’il me fallait dans ma bibliothèque: Effective Java, Second Edition de Joshua Bloch que j’avai">
+<meta property="og:image" content="http://pierrepironin.fr/effective-java/cover.jpg">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective Java">
+<meta name="twitter:description" content="Première étape de ma cure de rattrapage Java : repartir des bases de Java 6. Pour cela, j’avais déjà ce qu’il me fallait dans ma bibliothèque: Effective Java, Second Edition de Joshua Bloch que j’avai">
+<meta name="twitter:image" content="http://pierrepironin.fr/effective-java/cover.jpg">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Effective Java
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Sun Mar 22 2015 16:19:11 GMT+0100">
+	
+		    22 mars 2015
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div style="text-align: justify; text-justify: inter-word"><br><div class="figure center fig-50"><img class="fig-img" src="/effective-java/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div><br>Première étape de ma <a href="http://pierrepironin.fr/cure-de-jouvence-java/" title="Cure de jouvence Java">cure de rattrapage Java</a> : repartir des bases de Java 6. Pour cela, j’avais déjà ce qu’il me fallait dans ma bibliothèque: <a href="http://www.pearsonhighered.com/educator/product/Effective-Java/9780321356680.page" title="Effective Java URL" target="_blank" rel="external">Effective Java, Second Edition </a>de <em><a href="https://twitter.com/joshbloch" title="Joshua Bloch Twitter" target="_blank" rel="external">Joshua Bloch</a></em> que j’avais lu il y a quelques années.<br><br>Joshua Bloch est un développeur reconnu, il a notamment travaillé chez Sun Microsystems et Google et il a dirigé plusieurs spécifications et implémentations Java dont la fameuse Java Collections.<br><br>Effective Java est une mine de bonnes pratiques, basée sur l’expérience de son auteur pour écrire du code Java efficient, notamment lorsque l’on développe une bibliothèque dont l’API sera fortement exposée.<br>La seconde édition a été mise à jour pour Java 6, ce qui peut-être paraître un peu daté à l’heure de Java 8. Mais, même si quelques items ne sont plus forcément d’actualité avec l’avènement des nouvelles versions de Java (ex: concurrence), la majorité des conseils sont bons à prendre car ils ne sont pas liés au langage lui-même mais à la programmation objet en général.<br><br>Le livre est découpé en 78 items répartis en 10 parties, que je vais reprendre ici, en condensé, afin de servir de mémo.<br><a id="more"></a><br><span style="color: #3366ff;"><strong>Partie 1 - Création et suppression d’objets</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 1 - Envisager les méthodes statiques de fabrique plutôt que les constructeurs<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 2 - Envisager un “builder” face à un constructeur à beaucoup de paramètres<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 3 - Renforcer la propriété de singleton par un constructeur privé ou un <em>enum</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 4 - Renforcer la “non-instantiation” par un constructeur privé<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 5 - Éviter de créer des objets inutilement<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 6 - Éliminer les références vers les objets obsolètes<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 7 - Éviter les “finalizers”<br><span style="color: #3366ff;"><strong>Partie 2 - Méthodes communes à tous les objets Java</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 8 - Respecter le contrat généralement admis lors de la redéfinition de <em>equals</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 9 - Toujours redéfinir <em>hashcode</em> lorsque <em>equals</em> est redéfinie<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 10 - Toujours redéfinir <em>toString</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 11 - Redéfinir <em>clone</em> de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 12 - Envisager d’implémenter <em>Comparable</em><br><strong><span style="color: #3366ff;">Partie 3 - Classes et interfaces</span></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 13 - Minimiser l’accessibilité des classes et des membres<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 14 - Utiliser des accesseurs plutôt que des attributs publics<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 15 - Maximiser l’immuabilité (i.e. instances non modifiables)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 16 - Favoriser la composition plutôt que l’héritage<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 17 - Concevoir et documenter en vue de l’héritage ou alors l’interdire<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 18 - Favoriser les interfaces plutôt que les classes abstraites<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 19 - N’utiliser les interfaces que pour définir des types<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 20 - Favoriser des hiérarchie de classe plutôt que des classes “tagées”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 21 - Utiliser des objets fonctions pour représenter des stratégies<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 22 - Favoriser les classes internes statiques plutôt que non statiques<br><span style="color: #3366ff;"><strong>Partie 4 - Génériques</strong> </span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 23 - Ne plus utiliser les “raw types” (i.e. container non générique)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 24 - Éliminer les “unchecked warnings”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 25 - Favoriser les listes aux tableaux<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 26 - Favoriser les types génériques<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 27 - Favoriser les méthodes génériques<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 28 - Utiliser les “bounded wildcards” dans les paramètres de méthodes (ex:<em> Iterable&lt;? extends E&gt;</em> plutôt que <em>Iterable&lt;E&gt;</em>)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 29 - Envisager les “typesafe heterogeneous containers”<br><strong><span style="color: #3366ff;">Partie 5 - Enums et annotations</span></strong><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 30 - Utiliser des e<em>nums</em> plutôt que des <em>int</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 31 - Utiliser des instances d’<em>enums</em> plutôt que leur ordinal<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 32 - Utiliser des <em>EnumSet</em> plutôt que des “bit fields” (notamment pour les “flags”)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 33 - Utiliser des <em>EnumMap</em> plutôt qu’une indexation par ordinal d’<em>enum</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 34 - Simuler des <em>enums</em> étendus avec des interfaces<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 35 - Préférer les annotations à l’utilisation de chaînes de caractères(“naming patterns”)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 36 - Toujours utiliser l’annotation <em>@Override</em> lors d’une redéfinition<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 37 - Utiliser des interfaces “marker” pour définir des types (des interfaces sans méthode comme Serializable)<br><span style="color: #3366ff;"><strong>Partie 6 - Méthodes</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 38 - Vérifier la validité des paramètres<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 39 - Faire des copies défensives quand nécessaire<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 40 - Bien réfléchir aux signatures de méthodes (surtout quand elles font parties de l’API)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 41 - Utiliser la surcharge de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 42 - Utiliser les <em>varargs</em> de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 43 - Retourner des containers ou tableaux vides plutôt que des objets <em>null</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 44 - Écrire des commentaires de documentation pour les méthodes de l’API<br><span style="color: #3366ff;"><strong>Partie 7 - Programmation générale</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 45 - Minimiser la portée des variables locales<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 46 - Favoriser les boucles<em> for-each</em> plutôt que les boucles “classiques”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 47 - Connaître et utiliser les bibliothèques classiques<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 48 - Éviter les float et les double si des réponses exactes sont nécessaires (utiliser notamment BigDecimal)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 49 - Préférer les types primitifs aux équivalents “boxes” lors de traitement (=&gt; évite les copies coûteuses)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 50 - Éviter les chaînes de caractères lorsqu’un type plus approprié existe<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 51 - Être attentif à la performance de la concaténation de chaînes de caractères (utiliser des <em>StringBuilder</em>)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 52 - Faire référence à des objets par leurs interfaces (plutôt que par leur implémentations, ex: <em>List</em> et <em>ArrayList</em>)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 53 - Préférer les interfaces aux mécanismes de réflexion<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 54 - Utiliser les méthodes “natives” de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 55 - Optimiser de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 56 - Adhérer aux conventions de nommage généralement admises (surtout pour le développement de bibliothèques)<br><span style="color: #3366ff;"><strong>Partie 8 - Exceptions</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 57 - Utiliser les exceptions uniquement pour les événements exceptionnels<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 58 - Utiliser les “checked exceptions” pour les situations rattrapables et les “runtime exceptions” pour les erreurs de programmation<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 59 - Éviter l’utilisation inutile de “checked exceptions”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 60 - Préférer la réutilisation d’exceptions standards<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 61 - Renvoyer des exceptions appropriées au niveau d’abstraction courant<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 62 - Documenter toutes les exceptions envoyées par chaque méthode<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 63 - Inclure des informations/données sur l’incident dans les détails d’une exception<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 64 - Favoriser l’atomicité de l’échec (i.e. envoyer les exceptions au plus tôt, notamment avant de créer des objets)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 65 - Ne pas ignorer les exceptions<br><span style="color: #3366ff;"><strong>Partie 9 - Concurrence</strong> </span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 66 - Synchroniser l’accès aux données partagées<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 67 - Éviter les synchronisations excessives<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 68 - Favoriser les “executors” et les “tasks” aux threads<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 69 - Favoriser l’utilisation des classes de concurrence utilitaires plutôt que <em>wait</em> et <em>notify</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 70 - Documenter le niveau de “thread safety”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 71 - Utiliser l’initialisation paresseuse(“lazy”) de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 72 - Ne pas dépendre de l’ordonnanceur de thread (“thread scheduler”)<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 73 - Éviter les groupes de threads (la <em>ThreadGroup</em> API est obsolète)<br><span style="color: #3366ff;"><strong>Partie 10 - Sérialisation</strong></span><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 74 - Implémenter <em>Serializable</em> de façon judicieuse<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 75 - Envisager l’utilisation d’une forme de sérialisation “custom”<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 76 - Écrire la méthode <em>readObject</em> de façon défensive<br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 77 - Pour assurer le contrôle de l’instantiation, préférer les <em>singletons</em> à <em>readResolve</em><br>&nbsp;&nbsp;&nbsp;&nbsp;- Item 78 - Envisager d’utiliser un “proxy” de sérialisation plutôt que la sérialisation des instances<br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGÉ DANS</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Java-6/">Java 6</a> <a class="tag tag--primary tag--small t-link" href="/tags/effective-java/">effective java</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lava-jug-soiree-et-workshop-mongodb/"  data-tooltip="Lava JUG - Soirée et workshop MongoDB">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lavajug-s04e06/" data-tooltip="Lava JUG - A la (re)découverte des langages fonctionnels">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lava-jug-soiree-et-workshop-mongodb/"  data-tooltip="Lava JUG - Soirée et workshop MongoDB">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/lavajug-s04e06/" data-tooltip="Lava JUG - A la (re)découverte des langages fonctionnels">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/effective-java/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>

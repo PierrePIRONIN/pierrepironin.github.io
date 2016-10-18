@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="fr-FR">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Blog d&#39;un artisan développeur">
+    <title>Clean Code - Blog d&#39;un artisan développeur</title>
+    <meta name="author" content="Pierre PIRONIN">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="Près de dix ans après The Pragmatic Programmer, Clean Code est le livre qui a donné un second souffle au mouvement Software Craftsmanship. Tout comme son prédecesseur, c’est une bible pour développeu">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Clean Code">
+<meta property="og:url" content="http://pierrepironin.fr/clean-code/index.html">
+<meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="Près de dix ans après The Pragmatic Programmer, Clean Code est le livre qui a donné un second souffle au mouvement Software Craftsmanship. Tout comme son prédecesseur, c’est une bible pour développeu">
+<meta property="og:image" content="http://pierrepironin.fr/clean-code/cover.jpg">
+<meta property="og:updated_time" content="2016-10-16T18:05:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clean Code">
+<meta name="twitter:description" content="Près de dix ans après The Pragmatic Programmer, Clean Code est le livre qui a donné un second souffle au mouvement Software Craftsmanship. Tout comme son prédecesseur, c’est une bible pour développeu">
+<meta name="twitter:image" content="http://pierrepironin.fr/clean-code/cover.jpg">
+<meta name="twitter:creator" content="@PierrePIRONIN">
+    
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-70817000-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=90"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+            </a>
+            <span class="sidebar-profile-name">Pierre PIRONIN</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Accueil</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archive</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Rechercher</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">À propos</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://twitter.com/PierrePIRONIN" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                    <span class="sidebar-button-desc">Twitter</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://fr.linkedin.com/in/pierrepironin" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+                    <span class="sidebar-button-desc">LinkedIn</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:pierre@pierrepironin.fr" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Clean Code
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Wed Mar 05 2014 20:57:06 GMT+0100">
+	
+		    05 mars 2014
+    	
+    </time>
+    
+        <span>dans </span>
+        
+    <a class="category-link" href="/categories/Lectures/">Lectures</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <div class="figure center"><img class="fig-img" src="/clean-code/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div>
+<div style="text-align: justify; text-justify: inter-word"><br>Près de dix ans après <a href="http://pierrepironin.fr/the-pragmatic-programmer/" title="The Pragmatic Programmer">The Pragmatic Programmer</a>, <a href="http://www.pearsonhighered.com/educator/product/Clean-Code-A-Handbook-of-Agile-Software-Craftsmanship/9780132350884.page" title="Clean Code site web" target="_blank" rel="external">Clean Code</a> est le livre qui a donné un second souffle au mouvement Software Craftsmanship. Tout comme son prédecesseur, c’est une bible pour développeur. J’ai dévoré ce livre du début à la fin et je pense que c’est un livre à relire régulièrement afin de ne pas perdre de vue le bon sens qu’il contient.<br><br>Il a été écrit par <a href="http://www.objectmentor.com/omTeam/martin_r.html" title="Robert C. Martin" target="_blank" rel="external">Robert C. Martin</a>, alias “Uncle Bob”, expert mondialement reconnu dans le domaine des technologies objets. Il est aussi le fondateur et président de <a href="www.objectmentor.com" title="Object Mentor">Object Mentor, Inc.</a>, une équipe d’experts mondiaux dans les domaines C++, Java, C#, Ruby, OO, Design Pattern, et autres.<br><br>Le but du livre est de recenser les bonnes pratiques et les expériences d’experts d’Object Mentor afin d’écrire du code propre, robuste et surtout facilement lisible et compréhensible pour d’autres développeurs. La plupart des chapitres sont écrits par Robert Martin mais il a aussi laissé sa plume à d’autres experts : Tim Ottinger, Michael Feathers, James Grenning, Jeff Langr, Dr Kevin Dean Wampler, Brett L. Schubert.<br><br><a id="more"></a><strong>Chapitre 1 :</strong> Présentation du contenu du livre et de la vision de ce qu’est un code propre pour <em>Bjarne Stroustrup, Grady Booch, Dave Thomas, Michael Feathers, Ron Jeffries, Ward Cunningham</em>.<br><br><strong>Chapitre 2 :</strong> <strong>De l’importance du nommage</strong>. Il part du principe qu’un développeur passe plus de temps à lire du code qu’à en écrire. Aussi il est important de prendre du temps pour choisir le nom des variables, des fonctions, des classes, etc.<br><br><strong>Chapitre 3 :</strong> <strong>De l’écriture des fonctions</strong>. Robert se focalise sur l’écriture de fonctions, notamment en ne leur donner qu’une seule responsabilité (<a href="http://www.google.fr/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;ved=0CEMQFjAC&amp;url=http%3A%2F%2Fwww.objectmentor.com%2Fresources%2Farticles%2Fsrp.pdf&amp;ei=O4oTU5XWIOqq0QW704HwBQ&amp;v6u=https%3A%2F%2Fs-v6exp1-v4.metric.gstatic.com%2Fgen_204%3Fip%3D88.189.37.49%26ts%3D1393789482566668%26auth%3Dvbi4qbl5fxooj7awksibxoyhbm6mid7w%26rndm%3D0.2273553288278547&amp;v6s=2&amp;v6t=24855&amp;usg=AFQjCNHQQ1Aw-2yCciEbERpJn3VdHBCmQw&amp;sig2=lWazGWCIYzcLRSjFXLDzMg&amp;bvm=bv.62286460,d.d2k" title="SRP" target="_blank" rel="external">Single Responsability Principle</a>) et en veillant à les garder à un seul niveau d’abstraction.<br><br><strong>Chapitre 4 :</strong> <strong>De l’utilisation des commentaires</strong>. Qu’est-ce qui différencie un bon commentaire d’un mauvais. Pourquoi est-ce que l’on trouve plus souvent de mauvais commentaires que des bons. Éliminer sans scrupule les mauvais commentaires.<br><br><strong>Chapitre 5 :</strong> <strong>Du formatage du code</strong>. Robert nous présente le formatage vertical (taille d’un fichier, d’une méthode) et le formatage horizontal (longueur des lignes, indentation). Il nous renseigne aussi sur la distance verticale ou comment organiser les méthodes les unes par rapport aux autres, en regroupant les fonctions qui forment un groupe logique.<br><br><strong>Chapitre 6 : Objets vs Structures de données</strong>. Objet = instance de classe qui porte du code métier. Structure de données = container dont l’unique responsabilité est de mettre à disposition des champs publiques. Quand utiliser les uns ou les autres ? La loi de Demeter, qui fixe certaines règles d’exposition de code, est aussi abordée.<br><br><strong>Chapitre 7 :</strong> <strong>De la gestion d’erreur</strong><em><strong>s, par Michael Feathers</strong></em>. Pourquoi gérer les problèmes par des exceptions plutôt que par des codes de retour. Comment écrire du code propre avec des exceptions sans polluer le code métier.<br><br><strong>Chapitre 8 : Des limites, <em>par James Grenning</em></strong>. Comment protéger son code aux limites/interfaces et notamment dans la liaison avec du code tiers.<br><br><strong>Chapitre 9 : Des tests unitaires</strong>. Robert nous explique pourquoi il utilise le “Test Driven Development” pour écrire du code propre et pourquoi il faut considérer le code de test avec autant d’importance et de soins que du code de production. Enfin comment garder propre le code des tests lui-même.<br><br><strong>Chapitre 10 : Des classes, <em>avec Jeff Langr</em></strong>. Comment organiser proprement ses classes, que doit contenir une classe, qu’elle est sa taille raisonnable. De même que les fonctions, le principe de responsabilité unique (SRP) doit s’appliquer aux classes afin de garder un design propre. Enfin, comment protéger ses classes pour qu’elles s’adaptent facilement aux changements.<br><br><strong>Chapitre 11 : De la construction de systèmes, <em>par Dr Kevin Dean Wampler</em></strong>. Comment s’organise un système d’objets, comment bien instancier ces derniers. Les divers mécanismes qui permettent de mettre en relation des objets tels que l’injection, les proxies, etc sont évoqués.<br><br><strong>Chapitre 12 : De l’émergence du design, <em>par Jeff Langr</em></strong>. Comment obtenir une architecture propre et saine en la faisant émerger naturellement, notamment grâce au TDD. Pour cela, Jeff s’appuie sur ce que Kent Beck décrit comme un design simple : tous les tests passent, le code ne contient pas de duplication, le design décrit l’intention du développeur et minimise le nombre de classes et de méthodes.<br><br><strong>Chapitre 13 : De la concurrence, <em>par Brett L. Schubert</em></strong>. Brève introduction à la programmation propre dans du code multithreads. Une description beaucoup plus complète forme l’appendice A.<br><br><strong>Chapitre 14, 15 et 16 :</strong> Ces chapitres sont trois exemples de refactorisation de code pour les rendre propre. Le chapitre 15 est un exemple pris dans le code du framework <a href="http://junit.org/" title="JUnit" target="_blank" rel="external">JUnit</a> et le chapitre 16 est la réécriture de la classe <a href="http://www.jfree.org/jcommon/api/org/jfree/date/SerialDate.html" title="JFree Serial Date" target="_blank" rel="external">SerialDate</a>.<br><br>Enfin, dans le <strong>chapitre 17</strong>, Robert reprend le concept des “smells” de Martin Fowler dans <a href="http://martinfowler.com/books/refactoring.html" title="Refactoring" target="_blank" rel="external">Refactoring</a>. Ainsi, ce chapitre est un catalogue de trucs et astuces, d’heuristiques et de bonnes pratiques appliquées par Robert lui-même et ses collègues.<br></div>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/test-driven-development-by-example/"  data-tooltip="Test-Driven Development, By Example">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/moteur-de-script-en-python/" data-tooltip="Moteur de script en Python">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Pierre PIRONIN. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/test-driven-development-by-example/"  data-tooltip="Test-Driven Development, By Example">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/moteur-de-script-en-python/" data-tooltip="Moteur de script en Python">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/clean-code/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/7e1107690f34c749ba1ca5b05b7e18c5?s=110"/>
+        
+            <h4 id="about-card-name">Pierre PIRONIN</h4>
+        
+            <h5 id="about-card-bio"><p><em><p>J’ai créé ce blog pour parler de ce qui se passe autour de moi dans le domaine du génie logiciel. <br/>J’exposerai mes devs, mes idées, mes lectures, les faits qui m’intéressent et les événements auxquels je participe.</p> <p>Bonne lecture !</p></em></p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>Artisan développeur</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Auvergne, France
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/32.png');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+    <script type="text/javascript">
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','SPYDojLAixz-siwDiSoz','2.0.0');
+    </script>
+
+
+</html>
