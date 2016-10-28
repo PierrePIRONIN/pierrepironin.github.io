@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://pierrepironin.fr/ansible-mysql57/</loc>
+        <lastmod>2016-10-28T06:46:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pierrepironin.fr/pomodoro-at-work/</loc>
         <lastmod>2016-10-18T20:36:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,7 +23,7 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/Elixir/</loc>
+        <loc>http://pierrepironin.fr/Let-s-encrypt/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -31,7 +39,7 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/Let-s-encrypt/</loc>
+        <loc>http://pierrepironin.fr/Elixir/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,14 +55,6 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/agile-tour-bordeaux-2014/</loc>
-        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://pierrepironin.fr/agile-tour-clermont-ferrand-2013/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -63,7 +63,7 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/agile-tour-clermont-ferrand-2014/</loc>
+        <loc>http://pierrepironin.fr/agile-tour-bordeaux-2014/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,6 +72,14 @@
 
     <url>
         <loc>http://pierrepironin.fr/atdd-by-example/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/agile-tour-clermont-ferrand-2014/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -111,6 +119,14 @@
     </url>
 
     <url>
+        <loc>http://pierrepironin.fr/lava-jug-developpeur-front-end-en-milieu-hostile/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://pierrepironin.fr/gitlab-backup/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -127,7 +143,7 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/lava-jug-developpeur-front-end-en-milieu-hostile/</loc>
+        <loc>http://pierrepironin.fr/lava-jug-lambda-bestiary/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -135,7 +151,7 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/lava-jug-lambda-bestiary/</loc>
+        <loc>http://pierrepironin.fr/lava-jug-soiree-et-workshop-mongodb/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,22 +175,6 @@
     </url>
 
     <url>
-        <loc>http://pierrepironin.fr/lava-jug-soiree-et-workshop-mongodb/</loc>
-        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://pierrepironin.fr/lavajug-s04e06/</loc>
-        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://pierrepironin.fr/lavajug-virtualisation/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,6 +184,14 @@
 
     <url>
         <loc>http://pierrepironin.fr/ma-premiere-presentation-sur-lagilite/</loc>
+        <lastmod>2016-10-16T18:05:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://pierrepironin.fr/lavajug-s04e06/</loc>
         <lastmod>2016-10-16T18:05:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

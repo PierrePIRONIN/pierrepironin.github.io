@@ -6,18 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Blog d&#39;un artisan développeur">
-    <title>Archive: 2016/10 - Blog d&#39;un artisan développeur</title>
+    <title>Installer un serveur MySQL 5.7 avec Ansible sur CentOS - Blog d&#39;un artisan développeur</title>
     <meta name="author" content="Pierre PIRONIN">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="Blog d'un artisan développeur">
-<meta property="og:url" content="http://pierrepironin.fr/archives/2016/10/index.html">
+    <meta name="description" content="En ce moment je joue avec Ansible au boulot pour installer et configurer un serveur sous CentOS 7. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur MySQL">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Installer un serveur MySQL 5.7 avec Ansible sur CentOS">
+<meta property="og:url" content="http://pierrepironin.fr/ansible-mysql57/index.html">
 <meta property="og:site_name" content="Blog d'un artisan développeur">
+<meta property="og:description" content="En ce moment je joue avec Ansible au boulot pour installer et configurer un serveur sous CentOS 7. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur MySQL">
+<meta property="og:updated_time" content="2016-10-28T06:46:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog d'un artisan développeur">
+<meta name="twitter:title" content="Installer un serveur MySQL 5.7 avec Ansible sur CentOS">
+<meta name="twitter:description" content="En ce moment je joue avec Ansible au boulot pour installer et configurer un serveur sous CentOS 7. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur MySQL">
 <meta name="twitter:creator" content="@PierrePIRONIN">
     
     
@@ -53,7 +57,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Blog d&#39;un artisan développeur</a>
@@ -75,7 +79,7 @@
 
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     
         <div class="sidebar-profile">
             <a href="/#about">
@@ -220,25 +224,21 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
-
-<section class="postShorten-group main-content-wrap">
     
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/ansible-mysql57/">Installer un serveur MySQL 5.7 avec Ansible sur CentOS</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Installer un serveur MySQL 5.7 avec Ansible sur CentOS
+        </h1>
+    
+    <div class="post-meta">
     <time itemprop="datePublished" content="Fri Oct 28 2016 07:45:55 GMT+0200">
 	
 		    28 octobre 2016
@@ -246,110 +246,97 @@
     </time>
     
 </div>
-                </div>
-                
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <p>En ce moment je joue avec <a href="https://www.ansible.com" target="_blank" rel="external">Ansible</a> au boulot pour installer et configurer un serveur sous <a href="https://www.centos.org" target="_blank" rel="external">CentOS 7</a>. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a> en version 5.7.</p>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>En ce moment je joue avec <a href="https://www.ansible.com" target="_blank" rel="external">Ansible</a> au boulot pour installer et configurer un serveur sous <a href="https://www.centos.org" target="_blank" rel="external">CentOS 7</a>. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a> en version 5.7.</p>
 <p>A partir de cette version, la configuration par défaut du compte root change et un mot de passe temporaire est généré pour la première connexion. Du coup, la plupart des “<a href="http://docs.ansible.com/ansible/playbooks_intro.html" target="_blank" rel="external">playbook</a>“ ou “<a href="http://docs.ansible.com/ansible/playbooks_roles.html" target="_blank" rel="external">roles</a>“ que j’ai essayés ne fonctionnent plus. Si vous êtes dans ce cas-là aussi, voici le playbook que j’ai mis en place et qui a priori fonctionne:</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">- hosts:</span> my-centos-server</div><div class="line">  <span class="comment">## Variables ##</span></div><div class="line"><span class="attr">  vars:</span></div><div class="line"><span class="attr">    mysql_root_password:</span> ASuperSecurePassword</div><div class="line"></div><div class="line">  <span class="comment">## Tasks ##</span></div><div class="line"><span class="attr">  tasks:</span></div><div class="line"><span class="attr">  - name:</span> Get YUM repository for MySQL</div><div class="line"><span class="attr">    get_url:</span></div><div class="line"><span class="attr">      url:</span> http://dev.mysql.com/get/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">      dest:</span> /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install YUM repository for MySQL</div><div class="line"><span class="attr">    shell:</span> /bin/rpm -Uvh /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">    register:</span> yum_repo_resturn</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'conflict' in yum_repo_return.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install MySQL community server</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> mysql-community-server</div><div class="line"><span class="attr">      state:</span> present</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Launch MySQL service</div><div class="line"><span class="attr">    service:</span></div><div class="line"><span class="attr">      name:</span> mysqld</div><div class="line"><span class="attr">      state:</span> started</div><div class="line"><span class="attr">      enabled:</span> <span class="literal">yes</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install required python MySQLdb lib to create databases and users</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> <span class="string">"<span class="template-variable">&#123;&#123;item&#125;&#125;</span>"</span></div><div class="line"><span class="attr">      state:</span> present</div><div class="line"><span class="attr">    with_items:</span></div><div class="line"><span class="bullet">      -</span> gcc-c++</div><div class="line"><span class="bullet">      -</span> MySQL-python</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Get temporary MySQL root password</div><div class="line"><span class="attr">    shell:</span> grep <span class="string">'temporary password'</span> /var/log/mysqld.log | awk <span class="string">'&#123;print $NF&#125;'</span></div><div class="line"><span class="attr">    register:</span> mysql_root_temp_password</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Set the MySQL root password</div><div class="line"><span class="attr">    shell:</span> mysqladmin -u root --password=<span class="string">"<span class="template-variable">&#123;&#123; mysql_root_temp_password.stdout &#125;&#125;</span>"</span> password <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">    register:</span> mysql_admin_root_password_result</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'(using password: NO)' in mysql_admin_root_password_result.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Tune MySQL configuration</div><div class="line"><span class="attr">    template:</span></div><div class="line"><span class="attr">      src:</span> ./resources/my.cnf</div><div class="line"><span class="attr">      dest:</span> /etc/my.cnf</div><div class="line"><span class="attr">      mode:</span> <span class="number">0644</span></div><div class="line"><span class="attr">    notify:</span></div><div class="line"><span class="bullet">      -</span> restart mysqld</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create my datatable</div><div class="line"><span class="attr">    mysql_db:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      name:</span> MY_DATATABLE</div><div class="line"><span class="attr">      encoding:</span> utf8</div><div class="line"><span class="attr">      collation:</span> utf8_bin</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create MY_DBA user in MySQL and grant privileges</div><div class="line"><span class="attr">    mysql_user:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      user:</span> MY_DBA</div><div class="line"><span class="attr">      password:</span> AnOtherSuperSecurePassword</div><div class="line"><span class="attr">      host:</span> <span class="string">'%'</span></div><div class="line"><span class="attr">      priv:</span> <span class="string">'MY_DATATABLE.*:ALL'</span></div><div class="line"></div><div class="line">  <span class="comment">## Handlers ##</span></div><div class="line"><span class="attr">  handlers:</span></div><div class="line"><span class="attr">    - name:</span> restart mysqld</div><div class="line"><span class="attr">      service:</span></div><div class="line"><span class="attr">        name:</span> mysqld</div><div class="line"><span class="attr">        state:</span> restarted</div></pre></td></tr></table></figure>
 <p>Attention bien sûr de ne pas pousser un tel playbook contenant le mot de passe root sur un repo public !</p>
 
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/ansible-mysql57/#post-footer" class="postShorten-excerpt_link link">
-                                    Commenter et partager
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/pomodoro-at-work/">Retour sur une semaine de Pomodoro au boulot</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sun Oct 16 2016 21:06:49 GMT+0200">
-	
-		    16 octobre 2016
-    	
-    </time>
-    
-</div>
-                </div>
                 
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <p>Il y a une dizaine de jours, j’entamais une semaine de test pour essayer d’appliquer au travail la technique <a href="http://pomodorotechnique.com" target="_blank" rel="external">Pomodoro</a>, découvert lors de ma lecture de <a href="https://www.manning.com/books/soft-skills" target="_blank" rel="external">Soft Skills</a>.</p>
-<p><center><img src="/pomodoro-at-work/tweet-start-pomodoro.png" alt="Tweet Pomodoro"></center><br>Alors, Pomodoro au boulot, c’est jouable ?</p>
-<h4 id="Pomodoro-c’est-quoi"><a href="#Pomodoro-c’est-quoi" class="headerlink" title="Pomodoro c’est quoi ?"></a>Pomodoro c’est quoi ?</h4><p>Pomodoro est une technique de travail permettant d’augmenter sa productivité. Rien que ça !<br>Le but est de se concentrer sur une seule tâche à la fois en évitant le “task switching” et ainsi ne pas perdre un temps de “mise en condition” à chaque (re)démarrage de tâche.</p>
-<h4 id="Contexte-equipe-et-pourquoi-maintenant"><a href="#Contexte-equipe-et-pourquoi-maintenant" class="headerlink" title="Contexte équipe et pourquoi maintenant"></a>Contexte équipe et pourquoi maintenant</h4><p>Je travaille actuellement au sein d’une équipe d’environ 10 personnes, dans un open space, en pratiquant <a href="https://www.scrum.org" target="_blank" rel="external">Scrum</a>. Cela facilite la communication entre nous et nous permet aussi d’être tous plus ou moins au courant de ce que chacun fait.      </p>
-<p>Nous travaillons ainsi depuis plusieurs mois et nous avons entamé la dernière phase du projet de construction, celle où les complications se présentent ! Davantage d’interrogations fonctionnelles, de cohérence globale, plus de bugs, plus de code mort, plus de questionnement. Et donc un plus gros besoin de communication. C’est normal.     </p>
-<p>Mais la contrepartie est qu’il est plus difficile de trouver un créneau pour se concentrer 2h sur une tâche qui nécessite beaucoup d’attention. Voilà pourquoi j’ai donné sa chance à Pomodoro.</p>
-<h4 id="Fonctionnement"><a href="#Fonctionnement" class="headerlink" title="Fonctionnement"></a>Fonctionnement</h4><p>Le principe est simple, un pomodoro est composé de deux étapes:</p>
-<ul>
-<li>25 min de travail “intensif”: focus sur une tâche, pas de distraction, pas de notification, pas de mail, pas d’interruption de la part des collègues…</li>
-<li>5 min de pause: marche pour détendre les muscles, réponse aux questions des collègues, …     </li>
-</ul>
-<p>Tous les 4 pomodori, une pause plus longue (15-20 min) pour prendre un café et s’aérer l’esprit.</p>
-<p>Il s’agit en premier lieu d’une rigueur qu’on s’impose à soi-même pour ne pas être distrait: ne pas checker ses mails constamment ou sauter sur la première notification peut être compliqué au début. Mais quand on travaille dans une équipe de 10 personnes en open-space, l’environnement externe compte autant de distractions (si ce n’est plus) que son propre contexte individuel. Alors comment on fait ?    </p>
-<h4 id="Mise-en-place"><a href="#Mise-en-place" class="headerlink" title="Mise en place"></a>Mise en place</h4><p>La clé est de bien prendre le temps d’expliquer en quoi Pomodoro consiste et pourquoi on le fait (manque de plage de temps à consacrer à une activité) et que ce n’est absolument pas une poussée d’associabilité soudaine !<br>Insister sur le fait que l’on n’est pas complètement indisponible si une question bloquante se présente à un collègue ou si le besoin d’un coup de main se fait sentir. Juste que si la question peut attendre un peu, on sera entièrement disponible et l’esprit libre pendant 5 min et plus si besoin, dans 25 minutes maximum !</p>
-<p>Ensuite les 25 minutes sont assez facile à mettre en pratique si on part d’une base Scrum: </p>
-<ul>
-<li>on découpe un peu plus finement les tâches qu’on s’est assigné au Daily Scrum</li>
-<li>on met en place un timer (un <a href="https://chrome.google.com/webstore/detail/simple-pomodoro®/blidjjfbdbkcmegfnidmgndgdamhhelp" target="_blank" rel="external">plugin</a> Chrome simple me suffit)</li>
-<li>on choisit une marque/repère qui permet à l’équipe de savoir qu’on est en cours de pomodoro (j’ai choisi les écouteurs car cela permet aussi de se mettre dans une bulle même si cela peut avoir quelques inconvénients, j’y reviens plus loin)</li>
-<li>on se met une bonne dose de rigueur sur les mails et réseaux sociaux (désactivation des notifications notamment)    </li>
-</ul>
-<p>Pendant les 5 minutes de pause, j’essaye de me lever le plus souvent possible pour deux raisons: cela permet un relâchement musculaire et aussi de montrer clairement que je suis disponible pour des questions, un coup de main, etc, …</p>
-<h4 id="Ca-marche"><a href="#Ca-marche" class="headerlink" title="Ca marche ?"></a>Ca marche ?</h4><p>Oui. Trop bien même. J’étais rincé mentalement le premier soir !<br>Mais par contre j’avais sorti une bonne journée de développement !    </p>
-<p>J’attribue cette fatigue à deux choses: </p>
-<ul>
-<li>un trop grand nombre de pomodori dans la journée (9 le premier jour)</li>
-<li>la musique, qui même si elle est assez efficace pour se couper du reste de l’open-space, ajoute quand même il me semble une fatigue mentale    </li>
-</ul>
-<p>Je me suis donc adapté en ne faisant que 6-8 pomodori les bons jours (ceux sans ces chronophages réunions) et en coupant la musique un pomodoro sur deux, en gardant juste le casque sur les oreilles.</p>
-<p>Voilà, à chacun de trouver son équilibre ! Et vous, vous avez déjà essayé ?</p>
 
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/pomodoro-at-work/#post-footer" class="postShorten-excerpt_link link">
-                                    Commenter et partager
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
             
-        </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGÉ DANS</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/CentOS/">CentOS</a> <a class="tag tag--primary tag--small t-link" href="/tags/ansible/">ansible</a> <a class="tag tag--primary tag--small t-link" href="/tags/infrastructure-as-code/">infrastructure as code</a> <a class="tag tag--primary tag--small t-link" href="/tags/mysql-5-7/">mysql 5.7</a>
+
+            </div>
         
-        <li class="pagination-number">page sur</li>
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/pomodoro-at-work/" data-tooltip="Retour sur une semaine de Pomodoro au boulot">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        
+    </div>
+</article>
 
 
 
@@ -360,6 +347,89 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PRÉCÉDENT</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/pomodoro-at-work/" data-tooltip="Retour sur une semaine de Pomodoro au boulot">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">SUIVANT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-google-plus"></i><span class="">Partager sur Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-facebook-official"></i><span>Partager sur Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://pierrepironin.fr/ansible-mysql57/">
+                <i class="fa fa-twitter"></i><span>Partager sur Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         <!-- Define author's picture -->
@@ -404,6 +474,17 @@
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js"></script>
 <!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'pierrepironin';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
 
 
     <script type="text/javascript">

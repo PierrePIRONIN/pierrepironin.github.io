@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pierrepironin.fr/"/>
-  <updated>2016-10-18T20:36:10.000Z</updated>
+  <updated>2016-10-28T06:46:10.000Z</updated>
   <id>http://pierrepironin.fr/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Installer un serveur MySQL 5.7 avec Ansible sur CentOS</title>
+    <link href="http://pierrepironin.fr/ansible-mysql57/"/>
+    <id>http://pierrepironin.fr/ansible-mysql57/</id>
+    <published>2016-10-28T05:45:55.000Z</published>
+    <updated>2016-10-28T06:46:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>En ce moment je joue avec <a href="https://www.ansible.com" target="_blank" rel="external">Ansible</a> au boulot pour installer et configurer un serveur sous <a href="https://www.centos.org" target="_blank" rel="external">CentOS 7</a>. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a> en version 5.7.</p>
+<p>A partir de cette version, la configuration par défaut du compte root change et un mot de passe temporaire est généré pour la première connexion. Du coup, la plupart des “<a href="http://docs.ansible.com/ansible/playbooks_intro.html" target="_blank" rel="external">playbook</a>“ ou “<a href="http://docs.ansible.com/ansible/playbooks_roles.html" target="_blank" rel="external">roles</a>“ que j’ai essayés ne fonctionnent plus. Si vous êtes dans ce cas-là aussi, voici le playbook que j’ai mis en place et qui a priori fonctionne:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">- hosts:</span> my-centos-server</div><div class="line">  <span class="comment">## Variables ##</span></div><div class="line"><span class="attr">  vars:</span></div><div class="line"><span class="attr">    mysql_root_password:</span> ASuperSecurePassword</div><div class="line"></div><div class="line">  <span class="comment">## Tasks ##</span></div><div class="line"><span class="attr">  tasks:</span></div><div class="line"><span class="attr">  - name:</span> Get YUM repository for MySQL</div><div class="line"><span class="attr">    get_url:</span></div><div class="line"><span class="attr">      url:</span> http://dev.mysql.com/get/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">      dest:</span> /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install YUM repository for MySQL</div><div class="line"><span class="attr">    shell:</span> /bin/rpm -Uvh /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">    register:</span> yum_repo_resturn</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'conflict' in yum_repo_return.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install MySQL community server</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> mysql-community-server</div><div class="line"><span class="attr">      state:</span> present</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Launch MySQL service</div><div class="line"><span class="attr">    service:</span></div><div class="line"><span class="attr">      name:</span> mysqld</div><div class="line"><span class="attr">      state:</span> started</div><div class="line"><span class="attr">      enabled:</span> <span class="literal">yes</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install required python MySQLdb lib to create databases and users</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> <span class="string">"<span class="template-variable">&#123;&#123;item&#125;&#125;</span>"</span></div><div class="line"><span class="attr">      state:</span> present</div><div class="line"><span class="attr">    with_items:</span></div><div class="line"><span class="bullet">      -</span> gcc-c++</div><div class="line"><span class="bullet">      -</span> MySQL-python</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Get temporary MySQL root password</div><div class="line"><span class="attr">    shell:</span> grep <span class="string">'temporary password'</span> /var/log/mysqld.log | awk <span class="string">'&#123;print $NF&#125;'</span></div><div class="line"><span class="attr">    register:</span> mysql_root_temp_password</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Set the MySQL root password</div><div class="line"><span class="attr">    shell:</span> mysqladmin -u root --password=<span class="string">"<span class="template-variable">&#123;&#123; mysql_root_temp_password.stdout &#125;&#125;</span>"</span> password <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">    register:</span> mysql_admin_root_password_result</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'(using password: NO)' in mysql_admin_root_password_result.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Tune MySQL configuration</div><div class="line"><span class="attr">    template:</span></div><div class="line"><span class="attr">      src:</span> ./resources/my.cnf</div><div class="line"><span class="attr">      dest:</span> /etc/my.cnf</div><div class="line"><span class="attr">      mode:</span> <span class="number">0644</span></div><div class="line"><span class="attr">    notify:</span></div><div class="line"><span class="bullet">      -</span> restart mysqld</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create my datatable</div><div class="line"><span class="attr">    mysql_db:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      name:</span> MY_DATATABLE</div><div class="line"><span class="attr">      encoding:</span> utf8</div><div class="line"><span class="attr">      collation:</span> utf8_bin</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create MY_DBA user in MySQL and grant privileges</div><div class="line"><span class="attr">    mysql_user:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      user:</span> MY_DBA</div><div class="line"><span class="attr">      password:</span> AnOtherSuperSecurePassword</div><div class="line"><span class="attr">      host:</span> <span class="string">'%'</span></div><div class="line"><span class="attr">      priv:</span> <span class="string">'MY_DATATABLE.*:ALL'</span></div><div class="line"></div><div class="line">  <span class="comment">## Handlers ##</span></div><div class="line"><span class="attr">  handlers:</span></div><div class="line"><span class="attr">    - name:</span> restart mysqld</div><div class="line"><span class="attr">      service:</span></div><div class="line"><span class="attr">        name:</span> mysqld</div><div class="line"><span class="attr">        state:</span> restarted</div></pre></td></tr></table></figure>
+<p>Attention bien sûr de ne pas pousser un tel playbook contenant le mot de passe root sur un repo public !</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;En ce moment je joue avec &lt;a href=&quot;https://www.ansible.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ansible&lt;/a&gt; au boulot pour installer et config
+    
+    </summary>
+    
+    
+      <category term="ansible" scheme="http://pierrepironin.fr/tags/ansible/"/>
+    
+      <category term="mysql 5.7" scheme="http://pierrepironin.fr/tags/mysql-5-7/"/>
+    
+      <category term="CentOS" scheme="http://pierrepironin.fr/tags/CentOS/"/>
+    
+      <category term="infrastructure as code" scheme="http://pierrepironin.fr/tags/infrastructure-as-code/"/>
+    
+  </entry>
   
   <entry>
     <title>Retour sur une semaine de Pomodoro au boulot</title>
@@ -282,11 +312,11 @@
       <category term="Événements" scheme="http://pierrepironin.fr/categories/Evenements/"/>
     
     
+      <category term="lava JUG" scheme="http://pierrepironin.fr/tags/lava-JUG/"/>
+    
       <category term="Apache" scheme="http://pierrepironin.fr/tags/Apache/"/>
     
       <category term="Karaf" scheme="http://pierrepironin.fr/tags/Karaf/"/>
-    
-      <category term="lava JUG" scheme="http://pierrepironin.fr/tags/lava-JUG/"/>
     
       <category term="OSGi" scheme="http://pierrepironin.fr/tags/OSGi/"/>
     
@@ -618,9 +648,9 @@
       <category term="Événements" scheme="http://pierrepironin.fr/categories/Evenements/"/>
     
     
-      <category term="2014" scheme="http://pierrepironin.fr/tags/2014/"/>
-    
       <category term="agile tour" scheme="http://pierrepironin.fr/tags/agile-tour/"/>
+    
+      <category term="2014" scheme="http://pierrepironin.fr/tags/2014/"/>
     
       <category term="Clermont-Ferrand" scheme="http://pierrepironin.fr/tags/Clermont-Ferrand/"/>
     
@@ -644,9 +674,9 @@
       <category term="Événements" scheme="http://pierrepironin.fr/categories/Evenements/"/>
     
     
-      <category term="2014" scheme="http://pierrepironin.fr/tags/2014/"/>
-    
       <category term="agile tour" scheme="http://pierrepironin.fr/tags/agile-tour/"/>
+    
+      <category term="2014" scheme="http://pierrepironin.fr/tags/2014/"/>
     
       <category term="bordeaux" scheme="http://pierrepironin.fr/tags/bordeaux/"/>
     
@@ -709,34 +739,6 @@
       <category term="TDD" scheme="http://pierrepironin.fr/tags/TDD/"/>
     
       <category term="Robert C. Martin" scheme="http://pierrepironin.fr/tags/Robert-C-Martin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Agile Playground Clermont-Ferrand #3</title>
-    <link href="http://pierrepironin.fr/agile-playground-3/"/>
-    <id>http://pierrepironin.fr/agile-playground-3/</id>
-    <published>2014-05-29T07:45:27.000Z</published>
-    <updated>2016-10-16T18:05:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<div style="text-align: justify; text-justify: inter-word"><br>J’étais mardi soir au 3ème <a href="http://www.meetup.com/A-Cube/" title="A-Cube meetup" target="_blank" rel="external">Agile Playground</a> organisé par l’<a href="http://a-cube-auvergne.tumblr.com/" title="A-Cube" target="_blank" rel="external">A-Cube</a>. Le principe est simple : partager les valeurs de l’agilité grâce aux jeux. Les jeux ont une puissance insoupçonnée pour communiquer, échanger et faire partager des points de vue différents. Plusieurs activités peuvent être réalisées au cours d’une session : jouer à un jeu connu, découvrir un nouveau jeu ou bien même créer un jeu !<br><br>Nous étions une petite dizaine de participants et nous avons commencé la soirée par jouer. C’était mon premier playground et j’ai donc découvert le <a href="http://www.management30.com/product/delegation-poker/" title="Delegation poker" target="_blank" rel="external">delegation poker</a>. Le but du jeu est de faire prendre conscience aux participants du niveau de délégation dont doit faire preuve un manager et quel niveau de responsabilité peut accepter une équipe de travail auto-organisée que l’on retrouve dans beaucoup de méthodes agiles.<br>Pour cela, chaque joueur dispose de 7 cartes représentant chacune un niveau de délégation, de 1 (chef décidant seul sans consulter l’équipe) à 7 (équipe décidant seule sans présence du manager). L’animateur du jeu énonce un cas (<em>ex: en tant que manager, je décide seul du recrutement d’un nouvel équipier</em>) et chaque participant retourne la carte qui lui semble la plus appropriée.<br>S’en suit un échange pour connaître les avis de chacun et la raison de leur choix, puis un deuxième tour de jeu (comme au <a href="http://www.mountaingoatsoftware.com/agile/planning-poker" title="Planning poker" target="_blank" rel="external">planning poker</a>) pour voir si les avis peuvent converger.<br>J’ai bien aimé ce jeu qui permet selon les profils des participants (manager, responsable équipe, développeur, etc) de mettre en évidence les différences de jugement et surtout d’échanger autour de ces différences pour que chacun puisse relativiser un peu. Il me semble tout à fait approprié pour désamorcer les tensions qui peuvent apparaître dans un projet.<br><br>Après le delegation poker, place à la créativité. Nous avons essayé de créer un jeu en rapport avec des difficultés que l’on peut rencontrer dans notre quotidien professionnel. Un tour de table de chaque participant a permis de lister les idées de chacun et un vote a permis de choisir lequel serait le  thème du jeu.<br>Puis brainstorming autour du thème pour trouver un support (dessin, cartes, organisation des personnes dans l’espace, …) et les règles. Je n’en dirais pas plus, rendez-vous au prochain agile playground en juillet pour découvrir peut-être ce jeu dans sa version finalisée !<br><br>J’ai passé une super soirée avec des personnes très sympas. Merci à l’A-Cube pour l’organisation de ces soirées et aux participants pour leur bonne humeur !<br><br>Vivement la prochaine !<br></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div style=&quot;text-align: justify; text-justify: inter-word&quot;&gt;&lt;br&gt;J’étais mardi soir au 3ème &lt;a href=&quot;http://www.meetup.com/A-Cube/&quot; title=&quot;A-C
-    
-    </summary>
-    
-      <category term="Événements" scheme="http://pierrepironin.fr/categories/Evenements/"/>
-    
-    
-      <category term="agile" scheme="http://pierrepironin.fr/tags/agile/"/>
-    
-      <category term="management 3.0" scheme="http://pierrepironin.fr/tags/management-3-0/"/>
-    
-      <category term="playground" scheme="http://pierrepironin.fr/tags/playground/"/>
-    
-      <category term="serious game" scheme="http://pierrepironin.fr/tags/serious-game/"/>
     
   </entry>
   

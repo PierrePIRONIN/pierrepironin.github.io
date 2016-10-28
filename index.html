@@ -234,6 +234,49 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
+                                <a class="link-unstyled" href="/ansible-mysql57/">Installer un serveur MySQL 5.7 avec Ansible sur CentOS</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Fri Oct 28 2016 07:45:55 GMT+0200">
+	
+		    28 octobre 2016
+    	
+    </time>
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <p>En ce moment je joue avec <a href="https://www.ansible.com" target="_blank" rel="external">Ansible</a> au boulot pour installer et configurer un serveur sous <a href="https://www.centos.org" target="_blank" rel="external">CentOS 7</a>. Parmi toutes les applications à installer, j’ai buté un moment sur l’installation d’un serveur <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL</a> en version 5.7.</p>
+<p>A partir de cette version, la configuration par défaut du compte root change et un mot de passe temporaire est généré pour la première connexion. Du coup, la plupart des “<a href="http://docs.ansible.com/ansible/playbooks_intro.html" target="_blank" rel="external">playbook</a>“ ou “<a href="http://docs.ansible.com/ansible/playbooks_roles.html" target="_blank" rel="external">roles</a>“ que j’ai essayés ne fonctionnent plus. Si vous êtes dans ce cas-là aussi, voici le playbook que j’ai mis en place et qui a priori fonctionne:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">- hosts:</span> my-centos-server</div><div class="line">  <span class="comment">## Variables ##</span></div><div class="line"><span class="attr">  vars:</span></div><div class="line"><span class="attr">    mysql_root_password:</span> ASuperSecurePassword</div><div class="line"></div><div class="line">  <span class="comment">## Tasks ##</span></div><div class="line"><span class="attr">  tasks:</span></div><div class="line"><span class="attr">  - name:</span> Get YUM repository for MySQL</div><div class="line"><span class="attr">    get_url:</span></div><div class="line"><span class="attr">      url:</span> http://dev.mysql.com/get/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">      dest:</span> /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install YUM repository for MySQL</div><div class="line"><span class="attr">    shell:</span> /bin/rpm -Uvh /tmp/mysql57-community-release-el7<span class="bullet">-7.</span>noarch.rpm</div><div class="line"><span class="attr">    register:</span> yum_repo_resturn</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'conflict' in yum_repo_return.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install MySQL community server</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> mysql-community-server</div><div class="line"><span class="attr">      state:</span> present</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Launch MySQL service</div><div class="line"><span class="attr">    service:</span></div><div class="line"><span class="attr">      name:</span> mysqld</div><div class="line"><span class="attr">      state:</span> started</div><div class="line"><span class="attr">      enabled:</span> <span class="literal">yes</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Install required python MySQLdb lib to create databases and users</div><div class="line"><span class="attr">    yum:</span></div><div class="line"><span class="attr">      name:</span> <span class="string">"<span class="template-variable">&#123;&#123;item&#125;&#125;</span>"</span></div><div class="line"><span class="attr">      state:</span> present</div><div class="line"><span class="attr">    with_items:</span></div><div class="line"><span class="bullet">      -</span> gcc-c++</div><div class="line"><span class="bullet">      -</span> MySQL-python</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Get temporary MySQL root password</div><div class="line"><span class="attr">    shell:</span> grep <span class="string">'temporary password'</span> /var/log/mysqld.log | awk <span class="string">'&#123;print $NF&#125;'</span></div><div class="line"><span class="attr">    register:</span> mysql_root_temp_password</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Set the MySQL root password</div><div class="line"><span class="attr">    shell:</span> mysqladmin -u root --password=<span class="string">"<span class="template-variable">&#123;&#123; mysql_root_temp_password.stdout &#125;&#125;</span>"</span> password <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">    register:</span> mysql_admin_root_password_result</div><div class="line"><span class="attr">    failed_when:</span> <span class="string">"'(using password: NO)' in mysql_admin_root_password_result.stderr"</span></div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Tune MySQL configuration</div><div class="line"><span class="attr">    template:</span></div><div class="line"><span class="attr">      src:</span> ./resources/my.cnf</div><div class="line"><span class="attr">      dest:</span> /etc/my.cnf</div><div class="line"><span class="attr">      mode:</span> <span class="number">0644</span></div><div class="line"><span class="attr">    notify:</span></div><div class="line"><span class="bullet">      -</span> restart mysqld</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create my datatable</div><div class="line"><span class="attr">    mysql_db:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      name:</span> MY_DATATABLE</div><div class="line"><span class="attr">      encoding:</span> utf8</div><div class="line"><span class="attr">      collation:</span> utf8_bin</div><div class="line"></div><div class="line"><span class="attr">  - name:</span> Create MY_DBA user in MySQL and grant privileges</div><div class="line"><span class="attr">    mysql_user:</span></div><div class="line"><span class="attr">      login_user:</span> root</div><div class="line"><span class="attr">      login_password:</span> <span class="string">"<span class="template-variable">&#123;&#123; mysql_root_password &#125;&#125;</span>"</span></div><div class="line"><span class="attr">      user:</span> MY_DBA</div><div class="line"><span class="attr">      password:</span> AnOtherSuperSecurePassword</div><div class="line"><span class="attr">      host:</span> <span class="string">'%'</span></div><div class="line"><span class="attr">      priv:</span> <span class="string">'MY_DATATABLE.*:ALL'</span></div><div class="line"></div><div class="line">  <span class="comment">## Handlers ##</span></div><div class="line"><span class="attr">  handlers:</span></div><div class="line"><span class="attr">    - name:</span> restart mysqld</div><div class="line"><span class="attr">      service:</span></div><div class="line"><span class="attr">        name:</span> mysqld</div><div class="line"><span class="attr">        state:</span> restarted</div></pre></td></tr></table></figure>
+<p>Attention bien sûr de ne pas pousser un tel playbook contenant le mot de passe root sur un repo public !</p>
+
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/ansible-mysql57/#post-footer" class="postShorten-excerpt_link link">
+                                    Commenter et partager
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
                                 <a class="link-unstyled" href="/pomodoro-at-work/">Retour sur une semaine de Pomodoro au boulot</a>
                         
                     </h1>
@@ -697,46 +740,6 @@
                                     Commenter et partager
                                 </a>
                             </p>
-                        
-                    </div>
-                
-            </div>
-            
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/effective-java/">Effective Java</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sun Mar 22 2015 16:19:11 GMT+0100">
-	
-		    22 mars 2015
-    	
-    </time>
-    
-        <span>dans </span>
-        
-    <a class="category-link" href="/categories/Lectures/">Lectures</a>
-
-
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <div style="text-align: justify; text-justify: inter-word"><br><div class="figure center fig-50"><img class="fig-img" src="/effective-java/cover.jpg" width="200px" height="400px" alt=""></div><div style="clear:both;"></div><br>Première étape de ma <a href="http://pierrepironin.fr/cure-de-jouvence-java/" title="Cure de jouvence Java">cure de rattrapage Java</a> : repartir des bases de Java 6. Pour cela, j’avais déjà ce qu’il me fallait dans ma bibliothèque: <a href="http://www.pearsonhighered.com/educator/product/Effective-Java/9780321356680.page" title="Effective Java URL">Effective Java, Second Edition </a>de <em><a href="https://twitter.com/joshbloch" title="Joshua Bloch Twitter">Joshua Bloch</a></em> que j’avais lu il y a quelques années.<br><br>Joshua Bloch est un développeur reconnu, il a notamment travaillé chez Sun Microsystems et Google et il a dirigé plusieurs spécifications et implémentations Java dont la fameuse Java Collections.<br><br>Effective Java est une mine de bonnes pratiques, basée sur l’expérience de son auteur pour écrire du code Java efficient, notamment lorsque l’on développe une bibliothèque dont l’API sera fortement exposée.<br>La seconde édition a été mise à jour pour Java 6, ce qui peut-être paraître un peu daté à l’heure de Java 8. Mais, même si quelques items ne sont plus forcément d’actualité avec l’avènement des nouvelles versions de Java (ex: concurrence), la majorité des conseils sont bons à prendre car ils ne sont pas liés au langage lui-même mais à la programmation objet en général.<br><br>Le livre est découpé en 78 items répartis en 10 parties, que je vais reprendre ici, en condensé, afin de servir de mémo.<br>
-                        
-                            <a href="/effective-java/" class="postShorten-excerpt_link link">
-                                Continuer
-                            </a>
-                            
                         
                     </div>
                 
